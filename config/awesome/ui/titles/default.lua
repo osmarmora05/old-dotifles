@@ -12,13 +12,53 @@ local dpi       = beautiful.xresources.apply_dpi
 
 local helpers   = require('helpers')
 
-local flip_dir  = (beautiful.titles_inverted     and beautiful.is_title_horizontal) and "south" or
-                  (not beautiful.titles_inverted and beautiful.is_title_horizontal) and "north" or
-                  (beautiful.titles_inverted and not beautiful.is_title_horizontal) and "west"  or
-                  "east"
 
 -- Buttons
 ----------
+
+-- Text button
+-------------
+local function create_text_title_button(symbol, font, color_focus, color_unfocus, onclick)
+  return function(c)
+    local tb = wibox.widget {
+      align = "center",
+      valign = "center",
+      font = font,
+      markup = helpers.colorizeText(symbol, color_focus),
+      forced_width = dpi(21),
+      widget = wibox.widget.textbox
+    }
+
+    local color_transition = helpers.apply_transition {
+      element = tb,
+      prop = 'bg',
+      bg = color_focus,
+      hbg = beautiful.red,
+    }
+
+    client.connect_signal("property::active", function()
+      if c.active then
+        color_transition.off()
+        tb.markup = helpers.colorizeText(symbol, color_focus) -- Apply color to text when window is active
+      else
+        color_transition.on()
+        tb.markup = helpers.colorizeText(symbol, color_unfocus) -- Apply color to text when window is inactive
+      end
+    end)
+
+    tb:connect_signal("button::press", function()
+      if onclick then
+        onclick(c)
+      end
+    end)
+
+    tb.visible = true
+    return tb
+  end
+end
+
+-- Circular buttons
+-------------------
 local mkbutton = function (width,color,onclick)
   return function(c)
     local button = wibox.widget {
@@ -55,8 +95,8 @@ local mkbutton = function (width,color,onclick)
   end
 end
 
-local close = mkbutton( beautiful.title_size * 1/3,beautiful.red,function(c)
-    c:kill()
+local close = create_text_title_button("󰣐", beautiful.mn_font .. " 12", beautiful.red, beautiful.titlebar_fg_normal, function(c)
+  c:kill()
 end)
 
 local maximize = mkbutton(beautiful.title_size * 1/3,beautiful.blu, function(c)
@@ -69,9 +109,6 @@ local minimize = mkbutton(beautiful.title_size * 1/3,beautiful.mag,function(c)
     end)
 end)
 
-local sticky = mkbutton(beautiful.title_size, function(c)
-    c.sticky = not c.sticky
-end)
 
 -- Titlebars
 ------------
@@ -96,31 +133,28 @@ client.connect_signal("request::titlebars", function(c)
         position = beautiful.title_side,
     })
     n_titlebar.widget = {
-        {
-            {
-                { -- Start
-                    close(c),
-                    maximize(c),
-                    minimize(c),
-                    spacing = dpi(beautiful.item_spacing+3),
-                    layout  = wibox.layout.fixed.horizontal
-                },
-                { -- Middle
-                    buttons = buttons,
-                    layout  = wibox.layout.fixed.horizontal
-                },
-                { -- End
-                    --sticky(c),
-                    spacing = dpi(beautiful.item_spacing),
-                    layout  = wibox.layout.fixed.horizontal
-                },
-                spacing = dpi(beautiful.item_spacing),
-                layout  = wibox.layout.align.horizontal
-            },
-            direction = flip_dir,
-            widget    = wibox.container.rotate
-        },
-        margins = dpi(beautiful.scaling),
-        widget  = wibox.container.margin
-    }
+      {
+          {
+              { -- Start
+                  close(c),
+                  maximize(c),
+                  minimize(c),
+                  spacing = dpi(beautiful.item_spacing+3),
+                  layout  = wibox.layout.fixed.horizontal
+              },
+              { -- Middle
+                  buttons = buttons,
+                  layout  = wibox.layout.fixed.horizontal
+              },
+              { -- End
+                  nil,
+                  layout  = wibox.layout.fixed.horizontal
+              },
+              layout  = wibox.layout.align.horizontal
+          },
+          margins = dpi(beautiful.scaling),
+          widget  = wibox.container.margin
+      },
+      layout = wibox.layout.fixed.horizontal
+  }
 end)

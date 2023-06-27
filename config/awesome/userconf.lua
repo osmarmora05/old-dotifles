@@ -81,7 +81,6 @@ user.bar_pos      = "left"
 --- Toggles titlebars. Defaults to true.
 user.title_enable = true
 --- Toggles inverted titlebar layout. Defaults to false.
-user.title_invert = true
 
 --- Gaps. 
 ---   Inner gaps are common gaps. Default to 0.4.
@@ -106,7 +105,7 @@ user.round_client = false
 ---  light:
 ---    'gruvbox', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
-user.clr_palette  = "tokyonight"
+user.clr_palette  = "everforest"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
@@ -125,7 +124,7 @@ user.mn_font      = "CaskaydiaCove Nerd Font "
 --- AwesomeWM icon to be used (comment for default awesome icon): 
 ---   'arch', 'debian', 'fedora', 'nix', 'ubuntu' or 'void'.
 --- Can also be a path to an image.
-user.awm_icon     = "fedora"
+user.awm_icon     = "nix"
 
 -- Miscelaneous
 ---------------

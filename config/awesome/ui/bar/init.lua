@@ -273,7 +273,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                     widget = wibox.container.place
                 },
                 { -- Bottom Widgets
-                    systray, 
+                    systray,
                     systray_btn,
                     --bar_launcher,
                     {
