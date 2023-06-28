@@ -188,6 +188,35 @@ local systray_btn = wibox.widget {
 helpers.add_hover(systray_btn, beautiful.nbg, beautiful.lbg)
 
 -- Create a textclock widget
+-- local vbar_clock = {
+--     {
+--         {
+--             {
+--                 format = '<b>%H</b>',
+--                 font   = beautiful.mn_font .. dpi(beautiful.subt_font_size),
+--                 halign = "center",
+--                 widget = wibox.widget.textclock
+--             },
+--             {
+--                 {
+--                     format = '<b>%M</b>',
+--                     font   = beautiful.mn_font .. dpi(beautiful.subt_font_size),
+--                     halign = "center",
+--                     widget = wibox.widget.textclock
+--                 },
+--                 fg     = beautiful.dfg,
+--                 widget = wibox.container.background
+--             },
+--             layout  = wibox.layout.fixed.vertical
+--         },
+--         margins = dpi(beautiful.item_spacing),
+--         widget  = wibox.container.margin
+--     },
+--     bg     = beautiful.lbg,
+--     shape  = helpers.mkroundedrect(),
+--     widget = wibox.container.background
+-- }
+
 local vbar_clock = {
     {
         {
@@ -214,8 +243,15 @@ local vbar_clock = {
     },
     bg     = beautiful.lbg,
     shape  = helpers.mkroundedrect(),
-    widget = wibox.container.background
+    widget = wibox.container.background,
+    buttons = {
+        awful.button({}, 1, function()
+            awesome.emit_signal('widget::todoBox')
+        end)
+    }
 }
+
+--helpers.add_hover(vbar_clock, beautiful.nbg, beautiful.lbg)
 local hbar_clock = {
     {
         {
