@@ -25,6 +25,11 @@ local Side_padding = 5
 --Padding bottom of the content with the bar. Default is 5
 local Ends_padding = 5
 
+-- local Tray_icon    = beautiful.bar_size / 2
+-- local Batt_length  = beautiful.bar_size * 1.8
+-- local Side_padding = beautiful.is_bar_horizontal and beautiful.subt_font_size or beautiful.item_spacing
+-- local Ends_padding = beautiful.is_bar_horizontal and beautiful.item_spacing or beautiful.subt_font_size
+
 
 -- Bar Widgets
 --------------
@@ -230,8 +235,8 @@ local hbar_clock = {
 -- Awesome Bar
 --------------
 -- Bar length handling.
-local bar_length = beautiful.is_bar_horizontal and dpi(beautiful.full_width)
-                                               or dpi(beautiful.full_height)
+local bar_length = beautiful.is_bar_horizontal and dpi(beautiful.full_width - 10)
+                                               or dpi(beautiful.full_height - 10)
 
 -- The actual bar itself
 screen.connect_signal("request::desktop_decoration", function(s)
@@ -257,7 +262,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         position = beautiful.bar_side,
         screen   = s,
         width    = beautiful.is_bar_horizontal and dpi(bar_length) or dpi(beautiful.bar_size),
-        height   = 1060,
+        height   = beautiful.is_bar_horizontal and dpi(beautiful.bar_size) or dpi(bar_length),
         shape = helpers.mkroundedrect(),
         widget   = {
             {

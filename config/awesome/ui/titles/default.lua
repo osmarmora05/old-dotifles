@@ -9,6 +9,7 @@ local wibox     = require('wibox')
 local gears     = require('gears')
 local beautiful = require('beautiful')
 local dpi       = beautiful.xresources.apply_dpi
+local animation    = require("modules.animation")
 
 local helpers   = require('helpers')
 
@@ -16,46 +17,51 @@ local helpers   = require('helpers')
 -- Buttons
 ----------
 
+local flip_dir  = (beautiful.titles_inverted     and beautiful.is_title_horizontal) and "south" or
+                  (not beautiful.titles_inverted and beautiful.is_title_horizontal) and "north" or
+                  (beautiful.titles_inverted and not beautiful.is_title_horizontal) and "west"  or
+                  "east"
+
 -- Text button
 -------------
-local function create_text_title_button(symbol, font, color_focus, color_unfocus, onclick)
-  return function(c)
-    local tb = wibox.widget {
-      align = "center",
-      valign = "center",
-      font = font,
-      markup = helpers.colorizeText(symbol, color_focus),
-      forced_width = dpi(21),
-      widget = wibox.widget.textbox
-    }
+-- local function create_text_title_button(symbol, font, color_focus, color_unfocus, onclick)
+--   return function(c)
+--     local tb = wibox.widget {
+--       align = "center",
+--       valign = "center",
+--       font = font,
+--       markup = helpers.colorizeText(symbol, color_focus),
+--       forced_width = dpi(21),
+--       widget = wibox.widget.textbox
+--     }
 
-    local color_transition = helpers.apply_transition {
-      element = tb,
-      prop = 'bg',
-      bg = color_focus,
-      hbg = beautiful.red,
-    }
+--     local color_transition = helpers.apply_transition {
+--       element = tb,
+--       prop = 'bg',
+--       bg = color_focus,
+--       hbg = beautiful.red,
+--     }
 
-    client.connect_signal("property::active", function()
-      if c.active then
-        color_transition.off()
-        tb.markup = helpers.colorizeText(symbol, color_focus) -- Apply color to text when window is active
-      else
-        color_transition.on()
-        tb.markup = helpers.colorizeText(symbol, color_unfocus) -- Apply color to text when window is inactive
-      end
-    end)
+--     client.connect_signal("property::active", function()
+--       if c.active then
+--         color_transition.off()
+--         tb.markup = helpers.colorizeText(symbol, color_focus) -- Apply color to text when window is active
+--       else
+--         color_transition.on()
+--         tb.markup = helpers.colorizeText(symbol, color_unfocus) -- Apply color to text when window is inactive
+--       end
+--     end)
 
-    tb:connect_signal("button::press", function()
-      if onclick then
-        onclick(c)
-      end
-    end)
+--     tb:connect_signal("button::press", function()
+--       if onclick then
+--         onclick(c)
+--       end
+--     end)
 
-    tb.visible = true
-    return tb
-  end
-end
+--     tb.visible = true
+--     return tb
+--   end
+-- end
 
 -- Circular buttons
 -------------------
@@ -91,11 +97,31 @@ local mkbutton = function (width,color,onclick)
       end
     end))
 
+     -- Agregar el bloque de código de animación aquí
+     local anim = animation:new({
+      duration = 0.12,
+      easing = animation.easing.linear,
+      update = function(_, pos)
+        button.forced_width = pos
+      end,
+    })
+    button:connect_signal('mouse::enter', function(_)
+      anim:set(50)
+    end)
+    button:connect_signal('mouse::leave', function(_)
+      anim:set(12)
+    end)
+    -- Fin del bloque de código de animación
+
     return button
   end
 end
 
-local close = create_text_title_button("󰣐", beautiful.mn_font .. " 12", beautiful.red, beautiful.titlebar_fg_normal, function(c)
+-- local close = create_text_title_button("󰣐", beautiful.mn_font .. " 12", beautiful.red, beautiful.titlebar_fg_normal, function(c)
+--   c:kill()
+-- end)
+
+local close = mkbutton(beautiful.title_size * 1/3,beautiful.red, function(c)
   c:kill()
 end)
 
@@ -115,31 +141,31 @@ end)
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
 
-    if c.requests_no_titlebar then
-        return
-    end
-    -- buttons for the titlebar
-    local buttons = {
-        awful.button({ }, 1, function()
-            c:activate { context = "titlebar", action = "mouse_move"  }
-        end),
-        awful.button({ }, 3, function()
-            c:activate { context = "titlebar", action = "mouse_resize"}
-        end),
-    }
+  if c.requests_no_titlebar then
+      return
+  end
+  -- buttons for the titlebar
+  local buttons = {
+      awful.button({ }, 1, function()
+          c:activate { context = "titlebar", action = "mouse_move"  }
+      end),
+      awful.button({ }, 3, function()
+          c:activate { context = "titlebar", action = "mouse_resize"}
+      end),
+  }
 
-    local n_titlebar = awful.titlebar(c, {
-        size     = beautiful.title_size,
-        position = beautiful.title_side,
-    })
-    n_titlebar.widget = {
+  local n_titlebar = awful.titlebar(c, {
+      size     = beautiful.title_size,
+      position = beautiful.title_side,
+  })
+  n_titlebar.widget = {
       {
           {
               { -- Start
                   close(c),
                   maximize(c),
                   minimize(c),
-                  spacing = dpi(beautiful.item_spacing+3),
+                  spacing = dpi(beautiful.item_spacing + 3),
                   layout  = wibox.layout.fixed.horizontal
               },
               { -- Middle
@@ -147,14 +173,17 @@ client.connect_signal("request::titlebars", function(c)
                   layout  = wibox.layout.fixed.horizontal
               },
               { -- End
-                  nil,
+                  --sticky(c),
+                  spacing = dpi(beautiful.item_spacing),
                   layout  = wibox.layout.fixed.horizontal
               },
+              spacing = dpi(beautiful.item_spacing),
               layout  = wibox.layout.align.horizontal
           },
-          margins = dpi(beautiful.scaling),
-          widget  = wibox.container.margin
+          direction = flip_dir,
+          widget    = wibox.container.rotate
       },
-      layout = wibox.layout.fixed.horizontal
+      margins = dpi(beautiful.scaling),
+      widget  = wibox.container.margin
   }
 end)

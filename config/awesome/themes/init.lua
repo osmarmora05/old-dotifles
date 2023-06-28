@@ -256,6 +256,10 @@ if user.title_enable ~= nil then
    theme.titles_enabled = user.title_enable
 end
 
+theme.titles_inverted         = false
+if user.title_invert ~= nil then
+   theme.titles_inverted = user.title_invert
+end
 
 theme.titlebar_font           = theme.ui_font .. "Bold " .. dpi(theme.scaling)
 theme.titlebar_bg_focus       = theme.blk

@@ -74,14 +74,14 @@ user.dpi          = 96
 --- by emitting the 'widget::bar' signal (mod + b) even if disabled.
 --- Defaults to true.
 user.bar_enabled  = true
---- Can be 'top', 'bottom', 'right' or 'left'. Defaults to 'left'.
+--- Can be 'right','top','bottom' or 'left'. Defaults to 'left'.
 user.bar_pos      = "left"
 
 --- Titles
 --- Toggles titlebars. Defaults to true.
 user.title_enable = true
 --- Toggles inverted titlebar layout. Defaults to false.
-
+user.title_invert = true
 --- Gaps. 
 ---   Inner gaps are common gaps. Default to 0.4.
 ---   Outer gaps are the gaps between the tag contents and the edge of the 
@@ -105,7 +105,7 @@ user.round_client = false
 ---  light:
 ---    'gruvbox', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
-user.clr_palette  = "everforest"
+user.clr_palette  = "everblush"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
