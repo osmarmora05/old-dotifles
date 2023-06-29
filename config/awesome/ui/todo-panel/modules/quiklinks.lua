@@ -19,7 +19,7 @@ local createButton = function(icon, name, color)
         margins = 12,
       },
       shape = helpers.mkroundedrect(),
-      bg = beautiful.bg_normal,
+      bg = beautiful.blk,
       widget = wibox.container.background,
       buttons = {
         awful.button({}, 1, function()
@@ -36,10 +36,10 @@ local finalwidget = wibox.widget {
   {
     {
       createButton("", 'https://www.reddit.com/', beautiful.red),
-      createButton("", 'https://www.4chan.org/', beautiful.grn),
+      createButton("", 'https://web.whatsapp.com/', beautiful.grn),
       createButton("", 'https://stackoverflow.com/', beautiful.ylw),
-      createButton("", 'https://github.com/', beautiful.wht),
-      createButton("", "https://youtube.com/", beautiful.red),
+      createButton("", 'https://github.com/osmarmora05', beautiful.wht),
+      createButton("", "https://youtube.com/", beautiful.blu),
       spacing = 18,
       layout = wibox.layout.fixed.vertical
     },

@@ -105,7 +105,7 @@ user.round_client = false
 ---  light:
 ---    'gruvbox', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
-user.clr_palette  = "tokyonight"
+user.clr_palette  = "everforest"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
@@ -124,7 +124,7 @@ user.mn_font      = "CaskaydiaCove Nerd Font "
 --- AwesomeWM icon to be used (comment for default awesome icon): 
 ---   'arch', 'debian', 'fedora', 'nix', 'ubuntu' or 'void'.
 --- Can also be a path to an image.
-user.awm_icon     = "nix"
+user.awm_icon     = "fedora"
 
 -- Miscelaneous
 ---------------
@@ -142,7 +142,7 @@ user.scratch_high = 0.66
 ------------
 -- Using `spawn.once` only spawns items at the beginning of the running session, and
 -- not on reloads. `spawn` does actually run not running items on reload. 
-local awful = require('awful')
+--local awful = require('awful')
 
 -- awful.spawn.once("picom")
 -- awful.spawn.once("mpd")

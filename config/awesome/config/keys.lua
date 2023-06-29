@@ -188,7 +188,7 @@ awful.keyboard.append_global_keybindings({
     -- toggle dashboard
     awful.key({ modkey,           }, "d", function() awesome.emit_signal("widget::dashboard") end,
               { description = "Toggle dashboard visibility", group = "UI" }),
-
+    --togle todo panel
     awful.key({ modkey,           }, "t", function() awesome.emit_signal("widget::todoBox") end,
               { description = "Toggle dashboard visibility", group = "UI" }),
     

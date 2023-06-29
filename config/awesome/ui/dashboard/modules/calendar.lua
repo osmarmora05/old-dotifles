@@ -55,8 +55,8 @@ local curr = os.date("*t")
 local updateCalendar = function(date)
   title.text = os.date("%B %Y", os.time(date))
   theGrid:reset()
-  for _, w in ipairs { "Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab" } do
-    if w == "Dom" or w == "Sab" then
+  for _, w in ipairs { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" }  do
+    if w == "Sun" or w == "Sat" then
       theGrid:add(daywidget(w, true))
     else
       theGrid:add(daywidget(w, false))

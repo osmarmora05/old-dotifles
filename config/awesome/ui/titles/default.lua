@@ -22,47 +22,6 @@ local flip_dir  = (beautiful.titles_inverted     and beautiful.is_title_horizont
                   (beautiful.titles_inverted and not beautiful.is_title_horizontal) and "west"  or
                   "east"
 
--- Text button
--------------
--- local function create_text_title_button(symbol, font, color_focus, color_unfocus, onclick)
---   return function(c)
---     local tb = wibox.widget {
---       align = "center",
---       valign = "center",
---       font = font,
---       markup = helpers.colorizeText(symbol, color_focus),
---       forced_width = dpi(21),
---       widget = wibox.widget.textbox
---     }
-
---     local color_transition = helpers.apply_transition {
---       element = tb,
---       prop = 'bg',
---       bg = color_focus,
---       hbg = beautiful.red,
---     }
-
---     client.connect_signal("property::active", function()
---       if c.active then
---         color_transition.off()
---         tb.markup = helpers.colorizeText(symbol, color_focus) -- Apply color to text when window is active
---       else
---         color_transition.on()
---         tb.markup = helpers.colorizeText(symbol, color_unfocus) -- Apply color to text when window is inactive
---       end
---     end)
-
---     tb:connect_signal("button::press", function()
---       if onclick then
---         onclick(c)
---       end
---     end)
-
---     tb.visible = true
---     return tb
---   end
--- end
-
 -- Circular buttons
 -------------------
 local mkbutton = function (width,color,onclick)
@@ -97,7 +56,7 @@ local mkbutton = function (width,color,onclick)
       end
     end))
 
-     -- Agregar el bloque de código de animación aquí
+     -- Animation
      local anim = animation:new({
       duration = 0.12,
       easing = animation.easing.linear,
@@ -111,15 +70,11 @@ local mkbutton = function (width,color,onclick)
     button:connect_signal('mouse::leave', function(_)
       anim:set(12)
     end)
-    -- Fin del bloque de código de animación
 
     return button
   end
 end
 
--- local close = create_text_title_button("󰣐", beautiful.mn_font .. " 12", beautiful.red, beautiful.titlebar_fg_normal, function(c)
---   c:kill()
--- end)
 
 local close = mkbutton(beautiful.title_size * 1/3,beautiful.red, function(c)
   c:kill()

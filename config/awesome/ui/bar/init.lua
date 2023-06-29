@@ -25,12 +25,6 @@ local Side_padding = 5
 --Padding bottom of the content with the bar. Default is 5
 local Ends_padding = 5
 
--- local Tray_icon    = beautiful.bar_size / 2
--- local Batt_length  = beautiful.bar_size * 1.8
--- local Side_padding = beautiful.is_bar_horizontal and beautiful.subt_font_size or beautiful.item_spacing
--- local Ends_padding = beautiful.is_bar_horizontal and beautiful.item_spacing or beautiful.subt_font_size
-
-
 -- Bar Widgets
 --------------
 -- Dashboard Launcher
@@ -188,34 +182,6 @@ local systray_btn = wibox.widget {
 helpers.add_hover(systray_btn, beautiful.nbg, beautiful.lbg)
 
 -- Create a textclock widget
--- local vbar_clock = {
---     {
---         {
---             {
---                 format = '<b>%H</b>',
---                 font   = beautiful.mn_font .. dpi(beautiful.subt_font_size),
---                 halign = "center",
---                 widget = wibox.widget.textclock
---             },
---             {
---                 {
---                     format = '<b>%M</b>',
---                     font   = beautiful.mn_font .. dpi(beautiful.subt_font_size),
---                     halign = "center",
---                     widget = wibox.widget.textclock
---                 },
---                 fg     = beautiful.dfg,
---                 widget = wibox.container.background
---             },
---             layout  = wibox.layout.fixed.vertical
---         },
---         margins = dpi(beautiful.item_spacing),
---         widget  = wibox.container.margin
---     },
---     bg     = beautiful.lbg,
---     shape  = helpers.mkroundedrect(),
---     widget = wibox.container.background
--- }
 
 local vbar_clock = {
     {
@@ -251,7 +217,6 @@ local vbar_clock = {
     }
 }
 
---helpers.add_hover(vbar_clock, beautiful.nbg, beautiful.lbg)
 local hbar_clock = {
     {
         {

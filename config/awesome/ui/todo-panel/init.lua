@@ -8,7 +8,10 @@ local todo = require('ui.todo-panel.modules.todo')
 local quote = require('ui.todo-panel.modules.quote')
 local quik = require('ui.todo-panel.modules.quiklinks')
 
--- Crea el wibox principal
+-- TodoPanel
+------------
+
+-- Create todo panel
 local todoBox = wibox {
     ontop    = true,
     visible = false,
@@ -19,7 +22,7 @@ local todoBox = wibox {
 }
 
 
--- Configura el contenido del wibox
+-- Content of the todo box
 todoBox:setup {
     layout = wibox.layout.fixed.vertical,
     {
@@ -57,10 +60,9 @@ awesome.connect_signal("widget::todoBox", function()
                                   beautiful.bar_side == "right" and "left" or
                                   beautiful.bar_side == "top" and "bottom" or
                                   beautiful.bar_side == "bottom" and "top",
-            --preferred_positions = "top",
             preferred_anchors   = "front",
             margins             = {
-                top    = dpi(10),   -- Ajusta este valor para cambiar la distancia desde la parte superior
+                top    = dpi(10),   --position
                 bottom = dpi(10),
                 left   = dpi(600),
                 right  = dpi(550)
