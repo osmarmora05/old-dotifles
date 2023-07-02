@@ -15,7 +15,7 @@ local quik = require('ui.todo-panel.modules.quiklinks')
 local todoBox = wibox {
     ontop    = true,
     visible = false,
-    width    = 700,
+    width    = 695,
     height   = 700,
     shape    = helpers.mkroundedrect(),
     bg       = beautiful.bg_normal
@@ -29,14 +29,14 @@ todoBox:setup {
         layout = wibox.layout.fixed.horizontal,
         todo,
         quik,
-        spacing = 20,
+        spacing = 15,
     },
     {
         layout = wibox.layout.fixed.horizontal,
         quote,
         spacing = 20,
     },
-    spacing = 20,
+    spacing = 15,
     {
         widget = wibox.widget.textbox
     },

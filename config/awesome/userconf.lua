@@ -76,6 +76,9 @@ user.dpi          = 96
 user.bar_enabled  = true
 --- Can be 'right','top','bottom' or 'left'. Defaults to 'left'.
 user.bar_pos      = "left"
+-- bar Gaps to Edge
+-- Defaults to true.
+user.bar_gap = true
 
 --- Titles
 --- Toggles titlebars. Defaults to true.
@@ -105,7 +108,7 @@ user.round_client = false
 ---  light:
 ---    'gruvbox', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
-user.clr_palette  = "everforest"
+user.clr_palette  = "tokyonight"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
@@ -124,14 +127,13 @@ user.mn_font      = "CaskaydiaCove Nerd Font "
 --- AwesomeWM icon to be used (comment for default awesome icon): 
 ---   'arch', 'debian', 'fedora', 'nix', 'ubuntu' or 'void'.
 --- Can also be a path to an image.
-user.awm_icon     = "fedora"
+user.awm_icon     = "nix"
 
 -- Miscelaneous
 ---------------
 --- Directory to save screenshots to (when prompted to do so).
 --- Defaults to '~/Pictures/'
 user.scrnshot_dir = os.getenv("HOME") .. "/Imágenes/"
-
 --- Terminal scratchpad. Brought up with `mod + Ctrl + Return`.
 --- Horizontal screen percentage used as width. Defaults to 0.40.
 user.scratch_wide = 0.40
@@ -147,6 +149,10 @@ user.scratch_high = 0.66
 -- awful.spawn.once("picom")
 -- awful.spawn.once("mpd")
 -- awful.spawn.once("mpDris2")
+
+-- Note
+-------
+-- Your task list is managed in this directory ~/.cache/awesome/
 
 -- EOF
 ------

@@ -185,7 +185,7 @@ local function makeElement(i, n)
           },
           {
             font = beautiful.mn_font .. " 16",
-            markup = helpers.colorizeText("󰩹", beautiful.ylw_d),
+            markup = helpers.colorizeText("󰩹", beautiful.red),
             valign = "center",
             align = "center",
             widget = wibox.widget.textbox,
@@ -290,7 +290,7 @@ local finalwidget = wibox.widget {
             widget = wibox.widget.textbox,
             buttons = {
               awful.button({}, 1, function()
-                os.execute("rm ~/.cache/awesome/todos.json")
+                os.execute(os.getenv("HOME") .. "/.cache/awesome/todos.json")
                 refresh()
               end),
             },
@@ -314,7 +314,7 @@ local finalwidget = wibox.widget {
   forced_width = 580,
   shape = helpers.mkroundedrect(8),
   widget = wibox.container.background,
-  bg = beautiful.bg_normal
+  bg = beautiful.lbg
 }
 
 refresh()

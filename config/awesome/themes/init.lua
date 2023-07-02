@@ -159,7 +159,7 @@ end
 -- the space at the end is necessary
 theme.ui_font                 = user.ui_font ~= nil and user.ui_font .. " " or "IBM Plex Sans "
 theme.ic_font                 = user.ic_font ~= nil and user.ic_font .. " " or "Material Icons "
-theme.mn_font                 = user.mn_font ~= nil and user.mn_font .. " " or "IBM Plex Mono "
+theme.mn_font                 = user.mn_font ~= nil and user.mn_font .. " " or "CaskaydiaCove Nerd Font "
 -- default font
 theme.font                    = theme.ui_font .. "Medium " .. dpi(theme.tiny_font_size)
 
@@ -225,11 +225,16 @@ end
 
 -- Bar
 ------
-theme.bar_enabled             = true
+
 if user.bar_enabled ~= nil then
    theme.bar_enabled = user.bar_enabled
 end
-theme.bar_gap = true
+-- bar Gaps
+if user.bar_gap == nil then
+    theme.bar_gap = true
+else
+    theme.bar_gap = user.bar_gap
+end
 theme.wibar_bg                = theme.bg_normal
 theme.wibar_fg                = theme.fg_normal
 -- tasklist settings
