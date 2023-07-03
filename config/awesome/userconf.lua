@@ -108,11 +108,11 @@ user.round_client = false
 ---  light:
 ---    'gruvbox', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
-user.clr_palette  = "tokyonight"
+user.clr_palette  = "everforest"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
---- Default to 'IBM Plex Sans', 'Material Icons' and 'IBM Plex Mono' respectively.
+--- Default to 'IBM Plex Sans', 'Material Icons' and 'CaskaydiaCove Nerd Font' respectively.
 user.ui_font      = "IBM Plex Sans"
 user.ic_font      = "Material Icons"
 user.mn_font      = "CaskaydiaCove Nerd Font "
