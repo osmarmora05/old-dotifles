@@ -9,14 +9,14 @@ local createButton = function(icon, name, color)
       {
         {
           id = "icon",
-          font = beautiful.mn_font .. " 35",
+          font = beautiful.mn_font .. " 38",
           markup = helpers.colorizeText(icon, color),
           valign = "center",
           align = "center",
           widget = wibox.widget.textbox,
         },
         widget = wibox.container.margin,
-        margins = 12,
+        margins = 10,
       },
       shape = helpers.mkroundedrect(),
       bg = beautiful.blk,
@@ -35,16 +35,16 @@ end
 local finalwidget = wibox.widget {
   {
     {
-      createButton("", 'https://www.reddit.com/', beautiful.red),
-      createButton("", 'https://web.whatsapp.com/', beautiful.grn),
-      createButton("", 'https://stackoverflow.com/', beautiful.ylw),
-      createButton("", 'https://github.com/osmarmora05', beautiful.wht),
-      createButton("", "https://youtube.com/", beautiful.blu),
+      createButton(" ", 'https://www.reddit.com/', beautiful.red),
+      createButton(" ", 'https://web.whatsapp.com/', beautiful.grn),
+      createButton(" ", 'https://stackoverflow.com/', beautiful.ylw),
+      createButton(" ", 'https://github.com/osmarmora05', beautiful.wht),
+      createButton(" ", "https://youtube.com/", beautiful.blu),
       spacing = 18,
       layout = wibox.layout.fixed.vertical
     },
     widget = wibox.container.margin,
-    top = 18,
+    top = 10,
     bottom = 18
   },
   forced_width = 100,

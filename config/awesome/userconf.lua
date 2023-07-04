@@ -133,7 +133,7 @@ user.awm_icon     = "nix"
 ---------------
 --- Directory to save screenshots to (when prompted to do so).
 --- Defaults to '~/Pictures/'
-user.scrnshot_dir = os.getenv("HOME") .. "/Imágenes/"
+user.scrnshot_dir = os.getenv("HOME") .. "/Imágenes/Screenshots"
 --- Terminal scratchpad. Brought up with `mod + Ctrl + Return`.
 --- Horizontal screen percentage used as width. Defaults to 0.40.
 user.scratch_wide = 0.40

@@ -162,7 +162,7 @@ local function makeElement(i, n)
         {
           {
             font = beautiful.mn_font .. " 16",
-            markup = helpers.colorizeText("󰸞", beautiful.blu),
+            markup = helpers.colorizeText("", beautiful.blu),
             valign = "center",
             align = "center",
             widget = wibox.widget.textbox,
@@ -185,7 +185,7 @@ local function makeElement(i, n)
           },
           {
             font = beautiful.mn_font .. " 16",
-            markup = helpers.colorizeText("󰩹", beautiful.red),
+            markup = helpers.colorizeText("󰧧", beautiful.red),
             valign = "center",
             align = "center",
             widget = wibox.widget.textbox,

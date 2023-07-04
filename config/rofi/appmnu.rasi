@@ -17,7 +17,7 @@ window {
 }
 
 textbox {
-  str: "";
+  str: "";
   expand: false;
   padding: 0 12px 0px 8px;
   border-radius: 12px;

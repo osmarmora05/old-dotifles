@@ -52,7 +52,7 @@ not to, at least not for the time being.
 <details>
 <summary><b>1. Install Required Dependencies</b></summary>
 
-1. First of all you should install the [Awesome-git](https://github.com/awesomeWM/awesome/).
+1. First of all you should install the Awesome-git.
 
 
     **Arch users** can use the [Awesome-git AUR package](https://aur.archlinux.org/packages/awesome-git/).
@@ -62,7 +62,12 @@ not to, at least not for the time being.
 
     In the case of **Fedora-based distributions**, it is necessary to install certain libraries before proceeding with the Awesome-git installation(Maybe some bookstore is too much, but hey, you better not miss that on xd).
     ```shell
-    sudo dnf install xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel startup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel libxkbcommon-x11-devel xcb-cursor-devel make automake gcc gcc-c++ cmake
+    sudo dnf install xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel 
+    startup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel libxkbcommon-x11-devel xcb-cursor-devel 
+    make automake gcc gcc-c++ cmake glib2-devel gdk-pixbuf2-devel cairo-devel libX11-devel xcb-util-cursor-devel 
+    xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel libxkbcommon-devel cairo-devel xcb-util-image-devel 
+    libstartup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel libxcb-devel lua-devel cmake 
+    startup-notification-devel libxkbcommon-devel libxkbcommon-x11-devel libxdg-basedir-devel xcb-util-xrm-devel
     ```
 
     Once we have completed the prerequisites, we proceed to follow the Awesome-git build instructions found [here](https://github.com/awesomeWM/awesome/#building-and-installation).
@@ -80,6 +85,7 @@ not to, at least not for the time being.
     - [maim](https://github.com/naelstrof/maim),
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
+    - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) (icon pack)
     - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf),
     [Material Icons](https://github.com/google/material-design-icons) and [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
 
@@ -95,7 +101,7 @@ not to, at least not for the time being.
     <summary><b> In fedora (Fedora-based distributions)</b></summary>
 
     ```shell
-    sudo dnf install mpd playerctl NetworkManager pipewire wireplumber main slop xclip brightnessctl bluez upower 
+    sudo dnf install mpd playerctl NetworkManager pipewire wireplumber maim slop xclip brightnessctl bluez upower 
     ```
     - mpDris2 [here](https://koji.fedoraproject.org/koji/buildinfo?buildID=2121825)
     </details>
