@@ -3,20 +3,25 @@ local wibox = require("wibox")
 local awful = require("awful")
 local beautiful = require("beautiful")
 
+
+
 local createButton = function(icon, name, color)
   return wibox.widget {
     {
       {
         {
           id = "icon",
-          font = beautiful.mn_font .. " 38",
+          font = beautiful.mn_font .. " 35",
           markup = helpers.colorizeText(icon, color),
           valign = "center",
           align = "center",
           widget = wibox.widget.textbox,
         },
         widget = wibox.container.margin,
-        margins = 10,
+        top = 10,
+        left = 18,
+        bottom = 10,
+        right = 10,
       },
       shape = helpers.mkroundedrect(),
       bg = beautiful.blk,

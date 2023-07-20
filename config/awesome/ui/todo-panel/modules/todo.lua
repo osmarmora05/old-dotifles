@@ -236,18 +236,18 @@ local function makeElement(i, n)
   end)
 end
 
-local makeData = function(d)
-  local data = getData()
-  table.insert(data, d)
-  writeData(data)
-end
-
 local function refresh()
   elems:reset()
   local data = getData()
   for i, j in ipairs(data) do
     makeElement(j, i)
   end
+end
+
+local function makeData(d)
+  local data = getData()
+  table.insert(data, d)
+  writeData(data)
 end
 
 local empV
@@ -312,7 +312,7 @@ local finalwidget = wibox.widget {
     margins = 18
   },
   forced_width = 580,
-  shape = helpers.mkroundedrect(8),
+  shape = helpers.mkroundedrect(),
   widget = wibox.container.background,
   bg = beautiful.lbg
 }
