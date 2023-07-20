@@ -1,5 +1,5 @@
 > **Note**
-My configuration files have been created based on the [Stranger](https://github.com/Gwynsav/gwdawful/) and [fuyu](https://github.com/chadcat7/fuyu) projects. So I ask people to give credit to these amazing people.
+My configuration files have been created based on the [Stranger](https://github.com/Gwynsav/gwdawful/) and [fuyu](https://github.com/chadcat7/fuyu)(which is now called crystal) projects. So I ask people to give credit to these amazing people.
 
 
 <!-- PROFILE PICTURE -->
@@ -115,11 +115,16 @@ not to, at least not for the time being.
 
     </details>
 
-    **Optional - if you want to install the programs I use (in fedora)**
+   <details>
+   <summary><b>Optional - if you want to install the programs I use (in fedora)</b></summary>
+    
 
     ```shell
     sudo dnf install brave-browser rofi kitty htop ranger fish
     ```
+
+    </details>
+
 </details>
 
 
@@ -166,6 +171,9 @@ not to, at least not for the time being.
     Log out from your current desktop session and log in into AwesomeWM
     
 </details>
+
+> **Note**
+If you find any spelling or installation errors, let me know.
 
 <!-- KEYBINDS -->
 ## ⌨️ Usage
@@ -241,8 +249,7 @@ Simple Configuration
 You can edit some basic stuff by using the included variables inside of `userconf.lua`. This configuration includes, border size, gaps, titles, bar positions, and much more, as well as toggling features.
 
 
-> **Note**
-If you find any spelling or installation errors, let me know.
+
 
 <details>
   
@@ -354,6 +361,12 @@ It is important to note that **it is recommended not to modify the rest of the c
 ## 🧰 Modules
 AwesomeWM Modules:
 
+<details>
+
+<p align="center">
+  <b> </b>
+</p>
+
 - [bling](https://github.com/blingcorp/bling) 
   - Adds new layouts, modules, and widgets that try to focus on window management primarily
 - [color](https://github.com/andOrlando/color)
@@ -364,6 +377,8 @@ AwesomeWM Modules:
   - Smooth animations with a slope curve for AwesomeWM
 - [json.lua](https://github.com/rxi/json.lua)
   - A lightweight JSON library for Lua. And it was used for the task list 
+
+</details>
 
 <!-- TODO -->
 ## ☑️ Todo
@@ -387,16 +402,12 @@ These people's dotfiles (and in some cases they themselves) have massively
 helped me create this configuration.
 
 [Blyaticon's cropping helper](https://git.gemia.net/paul.s/homedots). 
-Finally some good fucking image usage.
 
 [Alpha.'s NixOS Awesome setup](https://github.com/AlphaTechnolog/nixdots). 
-General reference and stole his helpers :)
 
 [Stardust-kyun's dotfiles](https://github.com/Stardust-kyun/dotfiles). 
-Basically the first thing I started reading when I got into Awesome.
 
 [Aproxia's dotfiles](https://github.com/Aproxia-dev/.dotfiles). 
-Funny animation ghost.
 
 Also got a few ideas from [elenapan's dotfiles](https://github.com/elenapan/dotfiles) 
 and [rxyhn's Yoru](https://github.com/rxyhn/yoru).
