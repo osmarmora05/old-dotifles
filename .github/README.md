@@ -12,25 +12,13 @@ My configuration files have been created based on the [Stranger](https://github.
   <b>🍥 Strangyu 🍥</b>
 </p>
 
-<!-- INFORMATION -->
-### Hello! Thanks for coming!
-<img align="right" width="400px" src="./assets/preview.jpg">
+## 
 
-These are my configuration files for **AwesomeWM** called **Strangyu**, which includes a 
-user configuration file, a repositionable bar and titles (with animation), a control center, 
-a task list board,and shortcuts for popular pages, notifications, tools screenshot, 
-interactive calendar, multiple colorschemes.
-
-Here are more details about the setup:
-- **WM:** [AwesomeWM](https://github.com/awesomeWM/awesome) 
-- **Operating system:** [Fedora](https://fedoraproject.org/workstation/download/)
-- **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
-- **Shell:** [fish](https://fishshell.com/) 
-- **Application Launcher:** [rofi](https://github.com/davatorium/rofi) 
-- **File Manager:** [Ranger](https://github.com/ranger/ranger) 
-  
-Both of the results shown in the images can be achieved by
-changing just a few variables in the`userconf.lua` file.
+<div align="center">
+<img src="./screenshots/1.jpg" alt="showcase1">
+<img src="./screenshots/2.jpg" alt="showcase2">
+<img src="./screenshots/3.jpg" alt="showcase3">
+</div>
 
 <!-- WARNING BROKEN CODE -->
 > **Warning**
@@ -45,6 +33,26 @@ the config, which in turn causes it to be extremely unstable and prone to crashi
 currently working on fixing this, and so the configuration is currently undergoing pretty
 fundamental changes. If you were here considering to try it out, I would like to ask you
 not to, at least not for the time being.
+
+
+<!-- INFORMATION -->
+## Hello! Thanks for coming! ❤️ 
+These are my configuration files for **AwesomeWM** called **Strangyu**, which includes a 
+user configuration file, a repositionable bar and titles (with animation), a control center, 
+a task list board,and shortcuts for popular pages, notifications, tools screenshot, 
+interactive calendar, multiple colorschemes.
+  
+The results shown in the pictures can be achieved
+changing just a few variables in the `userconf.lua` file.
+
+
+## ❄️ Features of config
+- **WM:** [AwesomeWM](https://github.com/awesomeWM/awesome) 
+- **Operating system:** [Fedora](https://fedoraproject.org/workstation/download/)
+- **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
+- **Shell:** [fish](https://fishshell.com/) 
+- **Application Launcher:** [rofi](https://github.com/davatorium/rofi) 
+- **File Manager:** [Ranger](https://github.com/ranger/ranger) 
 
 <!-- SETUP -->
 ## 🔧 Setup
@@ -239,6 +247,7 @@ Keybinds
 | `mod + b`              | Toggle bar visibility.                                     |
 | `mod + d`              | Toggle dashboard visibility.                               |
 | `mod + t`              | Toggle panel-todo visibility.                              |
+| `mod + Shift + t`              | Toggle themer widget visibility.                              |
 
 </details>
 
@@ -250,8 +259,15 @@ You can edit some basic stuff by using the included variables inside of `usercon
 
 
 
-
 <details>
+
+> **Warning**
+IT IS NOT RECOMMENDED TO MOVE THE `user.clr_palette` VARIABLE FROM THE CURRENT(115) LINE, BECAUSE IT IS LINKED TO THE `themer` WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST INDICATE THE FUNCTION 'setTheme' IN THE FILE `awesome/ui/themer/modules/themer.lua` THE LINE TO WHICH IT WILL MOVE 
+
+```lua
+fileContent[line number] = 'user.clr_palette = "' .. name:gsub('"', '\\"') .. '"''
+```
+
   
 | Variable       | Type      | Description                                                                        |
 | -------------- | --------- | ---------------------------------------------------------------------------------- |
@@ -387,6 +403,7 @@ AwesomeWM Modules:
 - [ ] Using Material Icons font in todo-panel icon
 - [ ] Add in `userconf.lua` variable for file path where todo-panel tasks are saved
 - [ ] Change the color of the terminal and the editor depending on the theme set in `userconf.lua`
+- [ ] Implement a better logic for the positioning of the themer widget
 
 <!-- CREDITS -->
 ## 💝 Credits

@@ -114,6 +114,7 @@ function helpers.crop_surface(ratio, surf)
     return out_surf
 end
 
+-- Add color to texts
 helpers.colorizeText = function(txt, fg)
     if fg == "" then
       fg = "#ffffff"
@@ -121,5 +122,14 @@ helpers.colorizeText = function(txt, fg)
 
     return "<span foreground='" .. fg .. "'>" .. txt .. "</span>"
 end
+
+helpers.indexOf = function(array, value)
+    for i, v in ipairs(array) do
+      if v == value then
+        return i
+      end
+    end
+    return nil
+  end
 
 return helpers

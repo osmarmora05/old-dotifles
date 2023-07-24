@@ -1,3 +1,10 @@
+-------------------------------------
+-- todo-panel: Task list by chadcat7 --
+-------------------------------------
+
+-- Imports
+----------
+
 local gears = require("gears")
 local json = require "modules.json"
 local wibox = require("wibox")
@@ -251,6 +258,9 @@ local function makeData(d)
 end
 
 local empV
+
+-- Widgets
+----------
 
 local finalwidget = wibox.widget {
   {

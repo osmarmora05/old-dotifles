@@ -1,9 +1,18 @@
+-------------------------------------
+-- dashboard: Calendar by chadcat7 --
+-------------------------------------
+
+-- Imports
+----------
+
 local wibox = require("wibox")
 local awful = require("awful")
 local beautiful = require "beautiful"
 local helpers = require "helpers"
 local dpi = beautiful.xresources.apply_dpi
 
+-- Widgets
+----------
 local datewidget = function(date, weekend)
   weekend = weekend or false
   return wibox.widget {

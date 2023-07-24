@@ -1,10 +1,16 @@
+-------------------------------------
+-- todo-panel: quick links by chadcat7 --
+-------------------------------------
+
+-- Imports
+----------
 local helpers = require("helpers")
 local wibox = require("wibox")
 local awful = require("awful")
 local beautiful = require("beautiful")
 
-
-
+-- Widgets
+----------
 local createButton = function(icon, name, color)
   return wibox.widget {
     {

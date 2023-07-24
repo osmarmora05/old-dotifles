@@ -127,7 +127,12 @@ local bar_battery_prog = wibox.widget {
        to    = { 0, 0 },
        stops = { { 0, beautiful.grn }, { 1, beautiful.grn_d } }
     },
-    widget           = wibox.widget.progressbar
+    widget           = wibox.widget.progressbar,
+    buttons = {
+        awful.button({}, 1, function()
+            awesome.emit_signal('widget::themerBox')
+        end)
+    },
 }
 local flipped_battery = wibox.widget {
     bar_battery_prog,
@@ -230,7 +235,12 @@ local hbar_clock = {
     },
     bg     = beautiful.lbg,
     shape  = helpers.mkroundedrect(),
-    widget = wibox.container.background
+    widget = wibox.container.background,
+    buttons = {
+        awful.button({}, 1, function()
+            awesome.emit_signal('widget::todoBox')
+        end)
+    }
 }
 
 -- Awesome Bar

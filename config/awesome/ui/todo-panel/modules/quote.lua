@@ -1,8 +1,16 @@
+-------------------------------------
+-- todo-panel: quotes by chadcat7 --
+-------------------------------------
+
+-- Imports
+----------
+
 local helpers = require("helpers")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
-
+--quotes
+-------
 local quotes = {
   {
     quote = "He that can have patience can have what he will",
@@ -22,6 +30,8 @@ local quotes = {
   }
 }
 
+-- Widgets
+----------
 local finalwidget = wibox.widget {
   {
     {

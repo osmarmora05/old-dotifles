@@ -1,3 +1,10 @@
+------------------------------
+-- Todo Panel configuration --
+------------------------------
+
+-- Imports
+----------
+
 local wibox     = require('wibox')
 local helpers   = require('helpers')
 local beautiful = require('beautiful')
@@ -8,8 +15,6 @@ local todo = require('ui.todo-panel.modules.todo')
 local quote = require('ui.todo-panel.modules.quote')
 local quik = require('ui.todo-panel.modules.quiklinks')
 
--- TodoPanel
-------------
 
 -- Create todo panel
 local todoBox = wibox {
