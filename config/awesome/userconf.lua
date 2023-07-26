@@ -112,7 +112,7 @@ user.round_client = false
 -- IMPORTAN
 -- IT IS NOT RECOMMENDED TO MOVE THE 'user.clr_palette' VARIABLE FROM THE CURRENT(115) LINE, BECAUSE IT IS LINKED TO THE --'themer' WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST INDICATE THE FUNCTION 'setTheme' IN THE FILE 'awesome/ui/themer/modules/themer.lua' THE LINE TO WHICH IT WILL MOVE
 -- fileContent[line number] = 'user.clr_palette = "' .. name:gsub('"', '\\"') .. '"'
-user.clr_palette  = "tokyonight"
+user.clr_palette  = "oxocarbon"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "WhiteSur"
 --- Fonts to be used.
@@ -131,7 +131,7 @@ user.mn_font      = "CaskaydiaCove Nerd Font "
 --- AwesomeWM icon to be used (comment for default awesome icon): 
 ---   'arch', 'debian', 'fedora', 'nix', 'ubuntu' or 'void'.
 --- Can also be a path to an image.
-user.awm_icon     = "fedora"
+user.awm_icon     = "nix"
 
 -- Miscelaneous
 ---------------

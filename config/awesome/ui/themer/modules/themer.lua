@@ -13,11 +13,11 @@ local helpers     = require("helpers")
 local gears       = require("gears")
 local user        = require("userconf")
 
--- Change value of user.color_palette depending on the set value of the widget
-local function setTheme(name)
-  local pathFile = os.getenv("HOME") .. "/.config/awesome/userconf.lua"
 
-  local file = io.open(pathFile,'r')
+-- Change value of user.color_palette depending on the set value of the widget
+local function setTheme(text,line,path)
+
+  local file = io.open(path,'r')
   local fileContent = {}
 
   for line in file:lines() do 
@@ -26,9 +26,9 @@ local function setTheme(name)
 
   io.close(file)
 
-  fileContent[115] = 'user.clr_palette  = "' .. name:gsub('"', '\\"') .. '"'
+  fileContent[line] = text
 
-  file = io.open(pathFile,'w')
+  file = io.open(path,'w')
   for index, value in ipairs(fileContent) do
     file:write(value .. '\n')
   end
@@ -142,7 +142,13 @@ local finalwidget = wibox.widget {
                 },
                 widget = wibox.container.margin,
                 buttons = awful.button({}, 1, function()
-                  setTheme(currTheme)
+                  local pathTheme = os.getenv("HOME") .. "/.config/awesome/userconf.lua"
+                  local theme = 'user.clr_palette  = "' .. currTheme:gsub('"', '\\"') .. '"'
+                  setTheme(theme,115,pathTheme) --Change theme
+
+                  -- local pathColorTerminal = os.getenv("HOME") .. "/.config/kitty/kitty.conf"
+                  -- local colorTeminal = "include " .. currTheme .. ".ini"
+                  -- setTheme(colorTeminal,3,pathColorTerminal) --Change color terminal
                 end),
               },
               spacing = 10,
