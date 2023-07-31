@@ -1,4 +1,4 @@
-@import "colors.rasi"
+@import "mar.rasi"
 
 configuration {
     show-icons:                     true;

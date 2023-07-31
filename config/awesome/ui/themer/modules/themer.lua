@@ -8,7 +8,6 @@
 local wibox       = require("wibox")
 local awful       = require("awful")
 local beautiful   = require("beautiful")
-local dpi         = require("beautiful").xresources.apply_dpi
 local helpers     = require("helpers")
 local gears       = require("gears")
 local user        = require("userconf")
@@ -36,9 +35,11 @@ local function setTheme(text,line,path)
 
 end
 
+
 -- Widgets
 ----------
 local currTheme   = user.clr_palette
+
 local drawing     = wibox.widget {
   resize = true,
   forced_width = 480,
@@ -142,13 +143,9 @@ local finalwidget = wibox.widget {
                 },
                 widget = wibox.container.margin,
                 buttons = awful.button({}, 1, function()
-                  local pathTheme = os.getenv("HOME") .. "/.config/awesome/userconf.lua"
-                  local theme = 'user.clr_palette  = "' .. currTheme:gsub('"', '\\"') .. '"'
-                  setTheme(theme,115,pathTheme) --Change theme
-
-                  -- local pathColorTerminal = os.getenv("HOME") .. "/.config/kitty/kitty.conf"
-                  -- local colorTeminal = "include " .. currTheme .. ".ini"
-                  -- setTheme(colorTeminal,3,pathColorTerminal) --Change color terminal
+                  setTheme('user.clr_palette  = "' .. currTheme:gsub('"', '\\"') .. '"',115,os.getenv("HOME") .. "/.config/awesome/userconf.lua") --Change theme
+                  -- setTheme("include " .. currTheme .. ".ini",3,os.getenv("HOME") .. "/.config/kitty/kitty.conf") --Change color terminal
+                  -- setTheme('@import "'..currTheme:gsub('"', '\\"') .. '.rasi"',1,os.getenv("HOME") .. "/.config/rofi/appmnu.rasi") --Change color rofi
                 end),
               },
               spacing = 10,

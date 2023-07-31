@@ -112,7 +112,7 @@ user.round_client = false
 -- IMPORTAN
 -- IT IS NOT RECOMMENDED TO MOVE THE 'user.clr_palette' VARIABLE FROM THE CURRENT(115) LINE, BECAUSE IT IS LINKED TO THE --'themer' WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST INDICATE THE FUNCTION 'setTheme' IN THE FILE 'awesome/ui/themer/modules/themer.lua' THE LINE TO WHICH IT WILL MOVE
 -- fileContent[line number] = 'user.clr_palette = "' .. name:gsub('"', '\\"') .. '"'
-user.clr_palette  = "oxocarbon"
+user.clr_palette  = "everforest"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "WhiteSur"
 --- Fonts to be used.
