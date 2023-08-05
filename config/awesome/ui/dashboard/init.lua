@@ -92,6 +92,6 @@ awesome.connect_signal("widget::dashboard", function()
         }
     )
     if dashboardBox.visible then
-        calendar.resetCalendar()
+        calendar.reset_calendar()
     end
 end)

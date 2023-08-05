@@ -188,12 +188,9 @@ awful.keyboard.append_global_keybindings({
     -- toggle dashboard
     awful.key({ modkey,           }, "d", function() awesome.emit_signal("widget::dashboard") end,
               { description = "Toggle dashboard visibility", group = "UI" }),
-    --togle todo panel
-    awful.key({ modkey,           }, "t", function() awesome.emit_signal("widget::todoBox") end,
+    --togle themer-panel
+    awful.key({ modkey,           }, "t", function() awesome.emit_signal("widget::themer_box") end,
               { description = "Toggle todo-panel visibility", group = "UI" }),
-    --Themer
-    awful.key({ modkey,     "Shift"    }, "t", function() awesome.emit_signal("widget::themerBox") end,
-    { description = "Toggle themer visibility", group = "UI" }),
     
 })
 

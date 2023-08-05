@@ -115,7 +115,7 @@ function helpers.crop_surface(ratio, surf)
 end
 
 -- Add color to texts
-helpers.colorizeText = function(txt, fg)
+helpers.colorize_text = function(txt, fg)
     if fg == "" then
       fg = "#ffffff"
     end

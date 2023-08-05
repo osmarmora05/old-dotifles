@@ -110,11 +110,11 @@ user.round_client = false
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
 
 -- IMPORTAN
--- IT IS NOT RECOMMENDED TO MOVE THE 'user.clr_palette' VARIABLE FROM THE CURRENT(115) LINE, BECAUSE IT IS LINKED TO THE --'themer' WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST INDICATE THE FUNCTION 'setTheme' IN THE FILE 'awesome/ui/themer/modules/themer.lua' THE LINE TO WHICH IT WILL MOVE
--- fileContent[line number] = 'user.clr_palette = "' .. name:gsub('"', '\\"') .. '"'
-user.clr_palette  = "everforest"
+--IT IS NOT RECOMMENDED TO MOVE THE VARIABLE user.clr_palette FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER --WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE setTheme FUNCTION IN THE awesome/ui/--themer-panel/modules/themer.lua FILE
+--setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number,os.getenv("HOME") .. "/.config/awesome/ userconf.lua") --Change theme
+user.clr_palette  = "fullerene"
 --- GTK icon pack to use, comment for Papirus or name.
-user.icon_pack    = "WhiteSur"
+user.icon_pack    = "Papirus"
 --- Fonts to be used.
 --- Default to 'IBM Plex Sans', 'Material Icons' and 'CaskaydiaCove Nerd Font' respectively.
 user.ui_font      = "IBM Plex Sans"
@@ -154,9 +154,6 @@ user.scratch_high = 0.66
 -- awful.spawn.once("mpd")
 -- awful.spawn.once("mpDris2")
 
--- Note
--------
--- Your task list is managed in this directory ~/.cache/awesome/
 
 -- EOF
 ------

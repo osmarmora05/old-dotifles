@@ -7,7 +7,6 @@
 local awful     = require('awful')
 local ruled     = require('ruled')
 local beautiful = require('beautiful')
-local gears     = require('gears')
 
 -- Rules
 --------

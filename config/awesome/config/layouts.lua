@@ -7,11 +7,8 @@
 local awful         = require('awful')
 local beautiful     = require('beautiful')
 local gears         = require('gears')
-local delayed_call  = require("gears.timer").delayed_call
 local dpi           = beautiful.xresources.apply_dpi
-
 local bling         = require('modules.bling')
-local helpers       = require('helpers')
 
 -- Layouts
 ----------

@@ -128,11 +128,6 @@ local bar_battery_prog = wibox.widget {
        stops = { { 0, beautiful.grn }, { 1, beautiful.grn_d } }
     },
     widget           = wibox.widget.progressbar,
-    buttons = {
-        awful.button({}, 1, function()
-            awesome.emit_signal('widget::themerBox')
-        end)
-    },
 }
 local flipped_battery = wibox.widget {
     bar_battery_prog,
@@ -188,7 +183,7 @@ helpers.add_hover(systray_btn, beautiful.nbg, beautiful.lbg)
 
 -- Create a textclock widget
 
-local vbar_clock = {
+local vbar_clock = wibox.widget {
     {
         {
             {
@@ -217,12 +212,14 @@ local vbar_clock = {
     widget = wibox.container.background,
     buttons = {
         awful.button({}, 1, function()
-            awesome.emit_signal('widget::todoBox')
+            awesome.emit_signal('widget::themer_box')
         end)
     }
 }
 
-local hbar_clock = {
+helpers.add_hover(vbar_clock, beautiful.lbg, beautiful.blk)
+
+local hbar_clock = wibox.widget {
     {
         {
             format = '<b>%H:%M</b>',
@@ -238,10 +235,12 @@ local hbar_clock = {
     widget = wibox.container.background,
     buttons = {
         awful.button({}, 1, function()
-            awesome.emit_signal('widget::todoBox')
+            awesome.emit_signal('widget::themer_box')
         end)
     }
 }
+
+helpers.add_hover(hbar_clock, beautiful.lbg, beautiful.blk)
 
 -- Awesome Bar
 --------------

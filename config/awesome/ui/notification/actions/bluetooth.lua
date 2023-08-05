@@ -1,4 +1,3 @@
-local awful     = require('awful')
 local naughty   = require('naughty')
 local bt        = require('beautiful')
 

@@ -17,7 +17,7 @@ local playerctl = require('modules.bling').signal.playerctl.lib()
 -- Widgets
 ----------
 local album_art = wibox.widget {
-    image       = helpers.crop_surface(1.5, gears.surface.load_uncached(beautiful.player_bg)),
+    image       = helpers.crop_surface(2, gears.surface.load_uncached(beautiful.player_bg)),
     vertical_fit_policy   = "fit",
     horizontal_fit_policy = "fit",
     resize      = true,

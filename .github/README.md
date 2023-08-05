@@ -1,6 +1,5 @@
-> **Note**
-My configuration files have been created based on the [Stranger](https://github.com/Gwynsav/gwdawful/) and [fuyu](https://github.com/chadcat7/fuyu)(which is now called crystal) projects. So I ask people to give credit to these amazing people.
-
+> **Important**
+>  My configuration files have been created based on the [Stranger](https://github.com/Gwynsav/gwdawful/) and [fuyu](https://github.com/chadcat7/fuyu)(which is now called crystal) projects. So I ask people to give credit to these amazing people.
 
 <!-- PROFILE PICTURE -->
 <p align="center">
@@ -18,7 +17,23 @@ My configuration files have been created based on the [Stranger](https://github.
 <img src="./screenshots/1.jpg" alt="showcase1">
 <img src="./screenshots/2.jpg" alt="showcase2">
 <img src="./screenshots/3.jpg" alt="showcase3">
+<img src="./screenshots/4.jpg" alt="showcase4">
 </div>
+
+
+<!--INFO TODO-PANEL-->
+<details>
+<summary><b> Info todo-panel</b></summary>
+
+<p align="center">
+  <b> </b>
+</p>
+
+> **Note**
+If you want to access the `todo-panel` widget, I suggest you take a look at this particular commit [particular commit](https://github.com/osmarmora05/dotfiles/tree/a30281c92ea9e78e96c609c5c558e3e45e79f367). I decided to remove this widget because I personally don't use it, also it has problems when used with dual monitors, which causes duplication of tasks during its operation, although this problem does not affect the file where the tasks are saved.
+
+<img src="./screenshots/todo-panel.jpg" alt="showcase5">
+</details>
 
 <!-- WARNING BROKEN CODE -->
 > **Warning**
@@ -26,7 +41,7 @@ It is not uncommon for me to commit broken code. Also I don't guarantee this set
 or the slightest bit safe for use. You have been warned.
 
 <!-- MASSIVE REFACTOR -->
-> **Note**
+> **Important**
 Massive refactor of how numbers are handled. As things currently are, I made a pretty
 big mistake where I performed a **shit ton** of arithmetic/logical operations through out
 the config, which in turn causes it to be extremely unstable and prone to crashing. I am
@@ -37,10 +52,10 @@ not to, at least not for the time being.
 
 <!-- INFORMATION -->
 ## Hello! Thanks for coming! ❤️ 
-These are my configuration files for **AwesomeWM** called **Strangyu**, which includes a 
-user configuration file, a repositionable bar and titles (with animation), a control center, 
-a task list board,and shortcuts for popular pages, notifications, tools screenshot, 
-interactive calendar, multiple colorschemes.
+These are my configuration files for **AwesomeWM** called **Strangyu**, which includes a
+user configuration file, a repositionable bar and titles (with animation), a control center,
+a dashboard with shortcuts for popular pages, notifications, screenshot tools,
+interactive calendar, multiple color schemes.
   
 The results shown in the pictures can be achieved
 changing just a few variables in the `userconf.lua` file.
@@ -246,8 +261,8 @@ Keybinds
 | UI                     | -                                                          |
 | `mod + b`              | Toggle bar visibility.                                     |
 | `mod + d`              | Toggle dashboard visibility.                               |
-| `mod + t`              | Toggle panel-todo visibility.                              |
-| `mod + Shift + t`              | Toggle themer widget visibility.                              |
+| `mod + t`              | Toggle themer-panel visibility.                              |
+
 
 </details>
 
@@ -262,9 +277,7 @@ You can edit some basic stuff by using the included variables inside of `usercon
 <details>
 
 > **Warning**
-IT IS NOT RECOMMENDED TO MOVE THE VARIABLE `user.clr_palette` FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE `setTheme` FUNCTION IN THE `awesome/ui/themer/modules/themer.lua` FILE
-
-
+IT IS NOT RECOMMENDED TO MOVE THE VARIABLE user.clr_palette FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE setTheme FUNCTION IN THE `awesome/ui/themer-panel/modules/themer.lua` FILE
 
 ```lua
 setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number,os.getenv("HOME") .. "/.config/awesome/ userconf.lua") --Change theme
@@ -330,20 +343,20 @@ setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number
 > **Warning**
 If you are a user not familiar with programming, and mainly in lua, I recommend that you skip this part.
 
-If you want to modify the todo-panel shortcuts, you can go to the `ui/todo-panel/modules/quicklinks.lua` file. In this file, you'll find this code snippet that you can edit to customize the shortcuts.
+If you want to modify the todo-panel shortcuts, you can go to the `ui/themer-panel/modules/quicklinks.lua` file. In this file, you'll find this code snippet that you can edit to customize the shortcuts.
 
 ```lua
-createButton("", 'https://www.reddit.com/', beautiful.red),
-createButton("", 'https://web.whatsapp.com/', beautiful.grn),
-createButton("", 'https://stackoverflow.com/', beautiful.ylw),
-createButton("", 'https://github.com/osmarmora05', beautiful.wht),
-createButton("", "https://youtube.com/", beautiful.blu),
+create_button("󰑍", 'https://www.reddit.com/', beautiful.red,beautiful.gry),
+create_button("󰖣", 'https://web.whatsapp.com/', beautiful.grn,beautiful.gry),
+create_button("󰊶", 'https://drive.google.com/drive/', beautiful.cya,beautiful.gry),
+create_button("󰊤", 'https://github.com/osmarmora05', beautiful.wht,beautiful.gry),
+create_button("󰊫", "https://mail.google.com/", beautiful.blu,beautiful.gry),
 ```
 
-Inside the `createButton` function, the first parameter is the icon of the shortcut, which you can get [here](https://www.nerdfonts.com/cheat-sheet) . The second parameter is the URL that the shortcut should point to. **It is recommended not to modify the rest of the code and not to add or remove shortcuts.**
+Inside the `create_button` function, the first parameter is the icon of the shortcut, which you can get [here](https://www.nerdfonts.com/cheat-sheet) . The second parameter is the URL that the shortcut should point to. **It is recommended not to modify the rest of the code and not to add or remove shortcuts.**
 
 
-If you want to change the todo-panel messages, you can go to the `ui/todo-panel/modules/quote.lua` file. In this file, you'll find a code snippet that you can edit to customize the messages.
+If you want to change the themer-panel messages, you can go to the `ui/themer-panel/modules/quote.lua` file. In this file, you'll find a code snippet that you can edit to customize the messages.
 
 ```lua
 local quotes = {
@@ -352,18 +365,19 @@ local quotes = {
     author = "Benjamin Franklin"
   },
   {
-    quote = "I am never afraid of failure; for I would sooner fail than not be among the greatest",
-    author = "John Keats"
+    quote = "The question is not who is going to leave me; is who is going to stop me.",
+    author = "Ayn Rand"
   },
   {
-    quote = "Tomorrow we will run faster, stretch out our arms farther",
-    author = " F. Scott Fitzgerald "
+    quote = "Life would be so much easier if could just look at the source code",
+    author = "Dave Olsen"
   },
   {
-    quote = "All we have to decide is what to do with the time that is given us. ",
-    author = "J. R. R. Tolkein"
+    quote = "Work hard in silence and let your success make all the noise.",
+    author = "Frank Ocean"
   }
 }
+
 ```
 The code defines a table called `quotes` that contains a list of `quotes`. Each quote is represented by a table element, which is itself a table with two fields: `quote` (the message itself) and `author` (the author of the message).
 
@@ -393,24 +407,21 @@ AwesomeWM Modules:
   - A UPowerGlib based battery widget for the Awesome WM
 - [rubato](https://github.com/andOrlando/rubato)
   - Smooth animations with a slope curve for AwesomeWM
-- [json.lua](https://github.com/rxi/json.lua)
-  - A lightweight JSON library for Lua. And it was used for the task list 
-
+  
 </details>
 
 <!-- TODO -->
 ## ☑️ Todo
 - [ ] Clean code
 - [ ] Refactor code
-- [ ] Using Material Icons font in todo-panel icon
-- [ ] Add in `userconf.lua` variable for file path where todo-panel tasks are saved
-- [ ] Change the color of the terminal and the editor depending on the theme set in `userconf.lua`
-- [ ] Implement a better logic for the positioning of the themer widget
+- [x] Using Material Icons font in todo-panel icon
+- [x] Change the color of the terminal and the editor depending on the theme set in `userconf.lua`
+- [ ] Implement a minimalist task widget
 
 <!-- CREDITS -->
 ## 💝 Credits
 
-Strangyu is the result of the merger of gw's brilliant projects 'Stranger' and chadcat7's 'Fuyu'. So without them this would not have been possible.  ૮꒰ ˶• ༝ •˶꒱ა ♡
+Strangyu is the result of the merger of gw's brilliant projects 'Stranger' and chadcat7's 'Fuyu'(which is now called crystal). So without them this would not have been possible.  ૮꒰ ˶• ༝ •˶꒱ა ♡
 
 - [gw](https://github.com/Gwynsav)
 - [chadcat7](https://github.com/chadcat7/fuyu)

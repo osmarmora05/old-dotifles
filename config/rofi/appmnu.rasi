@@ -1,4 +1,4 @@
-@import "mar.rasi"
+@import "fullerene.rasi"
 
 configuration {
     show-icons:                     true;
