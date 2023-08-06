@@ -61,3 +61,14 @@ symbol = " "
 
 [docker_context]
 symbol = " "
+
+[git_status]
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+untracked = "?"
+stashed = ""
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = ""
