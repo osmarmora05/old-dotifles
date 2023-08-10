@@ -35,10 +35,10 @@ end)
 -- External Padding
 -------------------
 -- This is added ON TOP of the 'beautiful.useless_gap' value
-local screen_padding = beautiful.outer_gaps - beautiful.useless_gap 
+local screen_padding = beautiful.outer_gaps - beautiful.useless_gap
 awful.screen.connect_for_each_screen(function(s)
     s.padding = {
-        left   = dpi(screen_padding), 
+        left   = dpi(screen_padding),
         right  = dpi(screen_padding), 
         top    = dpi(screen_padding), 
         bottom = dpi(screen_padding)

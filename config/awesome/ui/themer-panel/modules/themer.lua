@@ -57,8 +57,11 @@ local themes      = {
   'fullerene',
   'oxocarbon',
   'catppuccin',
+  'dracula',
   'mar',
-  'gruvbox',
+  'nord',
+  'gruvbox_dark',
+  'gruvbox_light',
   'solarized',
   'plata'
 }
@@ -124,7 +127,7 @@ local buttons_layout = wibox.widget {
 }
 
 local buttons_with_padding = wibox.container.margin(buttons_layout, 440, 10, 0, 0)
-local name_with_padding = wibox.container.margin(name, 480, 10, 10, 0)
+local name_with_padding = wibox.container.margin(name, 450, 10, 10, 0)
 
 local name_and_buttons_layout = wibox.widget {
   name_with_padding,

@@ -104,15 +104,15 @@ user.round_client = false
 ----------
 --- Supported themes:
 ---  dark:
----    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar',
+---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula'
 ---  light:
----    'gruvbox', 'solarized','plata'
+---    'gruvbox_light', 'solarized','plata'
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
 
 -- IMPORTAN
 --IT IS NOT RECOMMENDED TO MOVE THE VARIABLE user.clr_palette FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER --WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE setTheme FUNCTION IN THE awesome/ui/--themer-panel/modules/themer.lua FILE
 --setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number,os.getenv("HOME") .. "/.config/awesome/ userconf.lua") --Change theme
-user.clr_palette  = "fullerene"
+user.clr_palette  = "dracula"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
@@ -153,7 +153,6 @@ user.scratch_high = 0.66
 -- awful.spawn.once("picom")
 -- awful.spawn.once("mpd")
 -- awful.spawn.once("mpDris2")
-
 
 -- EOF
 ------
