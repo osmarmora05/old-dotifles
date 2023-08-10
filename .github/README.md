@@ -318,7 +318,7 @@ setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number
 | `title_invert` | `boolean` | Enable/disable position invert buttons in title. Defaults to **true**.                             |
 | `bar_gaps`     | `boolean` | Enable/disable bar gaps. Defaults to **true**.                                     |
 | Theming        | -         | -                                                      |
-| `clr_palette`  | `string`  | "everblush", "everforest", "tokyonight", "gruvbox", "solarized", "fullerene", "oxocarbon","catpuccin","fullerene","mar","plata". Does **NOT** have a default. |
+| `clr_palette`  | `string`  | "everblush", "everforest", "tokyonight", "gruvbox_light", "solarized", "fullerene", "oxocarbon","catpuccin","fullerene","mar","plata","nord","grubvox_dark","dracula". Does **NOT** have a default. |
 | `icon_pack`    | `string`  | GTK icon pack name. Defaults to **"Papirus"**.                                     |
 | `ui_font`      | `string`  | Name of main UI font. Does **NOT** take size. Defaults to **"IBM Plex Sans"**.     |
 | `ic_font`      | `string`  | Name of text icon font. Does **NOT** take size. Defaults to **"Material Icons"**.  |
@@ -348,7 +348,7 @@ If you want to modify the todo-panel shortcuts, you can go to the `ui/themer-pan
 ```lua
 create_button("󰑍", 'https://www.reddit.com/', beautiful.red,beautiful.gry),
 create_button("󰖣", 'https://web.whatsapp.com/', beautiful.grn,beautiful.gry),
-create_button("󰊶", 'https://drive.google.com/drive/', beautiful.cya,beautiful.gry),
+create_button("󰉎", 'https://drive.google.com/drive/', beautiful.cya,beautiful.gry),
 create_button("󰊤", 'https://github.com/osmarmora05', beautiful.wht,beautiful.gry),
 create_button("󰊫", "https://mail.google.com/", beautiful.blu,beautiful.gry),
 ```
