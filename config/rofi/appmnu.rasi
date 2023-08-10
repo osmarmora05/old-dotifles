@@ -1,4 +1,4 @@
-@import "fullerene.rasi"
+@import "dracula.rasi"
 
 configuration {
     show-icons:                     true;
