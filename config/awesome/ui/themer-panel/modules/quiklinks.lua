@@ -48,7 +48,7 @@ local final_widget = wibox.widget {
     {
       create_button("󰑍", 'https://www.reddit.com/', beautiful.red,beautiful.gry),
       create_button("󰖣", 'https://web.whatsapp.com/', beautiful.grn,beautiful.gry),
-      create_button("󰊶", 'https://drive.google.com/drive/', beautiful.cya,beautiful.gry),
+      create_button("󰉎", 'https://drive.google.com/drive/', beautiful.cya,beautiful.gry),
       create_button("󰊤", 'https://github.com/osmarmora05', beautiful.wht,beautiful.gry),
       create_button("󰊫", "https://mail.google.com/", beautiful.blu,beautiful.gry),
       spacing = 20,
