@@ -277,7 +277,7 @@ You can edit some basic stuff by using the included variables inside of `usercon
 <details>
 
 > **Warning**
-IT IS NOT RECOMMENDED TO MOVE THE VARIABLE `user.clr_palette` FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE `setTheme` FUNCTION IN THE `awesome/ui/themer-panel/modules/themer.lua` FILE
+IT IS NOT RECOMMENDED TO MOVE THE VARIABLE `user.clr_palette` FROM THE CURRENT LINE(111), BECAUSE IT IS LINKED TO THE THEMER WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE `setTheme` FUNCTION IN THE `awesome/ui/themer-panel/modules/themer.lua` FILE
 
 ```lua
 setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number,os.getenv("HOME") .. "/.config/awesome/ userconf.lua") --Change theme

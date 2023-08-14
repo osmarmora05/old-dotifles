@@ -112,9 +112,9 @@ local set_theme_button = wibox.widget {
 }
 
 set_theme_button:buttons(gears.table.join(awful.button({}, 1, function()
-  set_theme('user.clr_palette  = "' .. currTheme:gsub('"', '\\"') .. '"',115,os.getenv("HOME") .. "/.config/awesome/userconf.lua") --Change theme
-  -- set_theme("include " .. currTheme .. ".ini",3,os.getenv("HOME") .. "/.config/kitty/kitty.conf") --Change color terminal
-  -- set_theme('@import "'..currTheme:gsub('"', '\\"') .. '.rasi"',1,os.getenv("HOME") .. "/.config/rofi/appmnu.rasi") --Change color rofi
+  set_theme('user.clr_palette  = "' .. currTheme:gsub('"', '\\"') .. '"',111,os.getenv("HOME") .. "/.config/awesome/userconf.lua") --Change theme
+  -- set_theme("include " .. currTheme .. ".ini",3,os.getenv("HOME") .. "/.config/kitty/kitty.conf") --Change terminal color (kitty)
+  -- set_theme('@import "'..currTheme:gsub('"', '\\"') .. '.rasi"',1,os.getenv("HOME") .. "/.config/rofi/appmnu.rasi") --Change rofi color
 end)))
 
 
