@@ -225,10 +225,9 @@ end
 
 -- Bar
 ------
+-- It is not recommended to put it on false or else it will kill everything xd
+theme.bar_enabled = true
 
-if user.bar_enabled ~= nil then
-   theme.bar_enabled = user.bar_enabled
-end
 -- bar Gaps
 if user.bar_gap == nil then
     theme.bar_gap = true

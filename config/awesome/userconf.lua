@@ -10,7 +10,7 @@
 -- Define your default applications, mainly used in 'config/keys.lua'
 terminal     = "kitty"
 editor       = os.getenv("EDITOR")  or "code"
-browser      = os.getenv("BROWSER") or "brave-browser"
+browser      = os.getenv("BROWSER") or "firefox"
 top          = "htop"
 files_cli    = "ranger"
 files_gui    = "nautilus"
@@ -70,21 +70,17 @@ user.aspect_ratio = 16/9
 user.dpi          = 96
 
 --- Bar 
---- Changes default state of the bar. Can still be brought up
---- by emitting the 'widget::bar' signal (mod + b) even if disabled.
---- Defaults to true.
-user.bar_enabled  = true
 --- Can be 'right','top','bottom' or 'left'. Defaults to 'left'.
 user.bar_pos      = "left"
 -- bar Gaps to Edge
 -- Defaults to true.
-user.bar_gap = true
+user.bar_gap = false
 
 --- Titles
 --- Toggles titlebars. Defaults to true.
 user.title_enable = true
 --- Toggles inverted titlebar layout. Defaults to false.
-user.title_invert = true
+user.title_invert = false
 --- Gaps. 
 ---   Inner gaps are common gaps. Default to 0.4.
 ---   Outer gaps are the gaps between the tag contents and the edge of the 
@@ -110,9 +106,9 @@ user.round_client = false
 --- More themes can be added at `themes/palettes`. DOES NOT have a default.
 
 -- IMPORTAN
---IT IS NOT RECOMMENDED TO MOVE THE VARIABLE user.clr_palette FROM THE CURRENT LINE(115), BECAUSE IT IS LINKED TO THE THEMER --WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE setTheme FUNCTION IN THE awesome/ui/--themer-panel/modules/themer.lua FILE
+--IT IS NOT RECOMMENDED TO MOVE THE VARIABLE user.clr_palette FROM THE CURRENT LINE(111), BECAUSE IT IS LINKED TO THE THEMER --WIDGET. IF YOU MOVE IT FROM THE CURRENT LINE, YOU MUST MODIFY THE SECOND ARGUMENT OF THE setTheme FUNCTION IN THE awesome/ui/--themer-panel/modules/themer.lua FILE
 --setTheme('user.clr_palette = "' .. currTheme:gsub('"', '\\"') .. '"',line number,os.getenv("HOME") .. "/.config/awesome/ userconf.lua") --Change theme
-user.clr_palette  = "dracula"
+user.clr_palette  = "everforest"
 --- GTK icon pack to use, comment for Papirus or name.
 user.icon_pack    = "Papirus"
 --- Fonts to be used.
@@ -153,6 +149,8 @@ user.scratch_high = 0.66
 -- awful.spawn.once("picom")
 -- awful.spawn.once("mpd")
 -- awful.spawn.once("mpDris2")
+
+--awful.spawn.once("duplicati")
 
 -- EOF
 ------
