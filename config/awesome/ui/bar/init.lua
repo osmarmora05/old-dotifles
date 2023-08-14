@@ -245,8 +245,14 @@ helpers.add_hover(hbar_clock, beautiful.lbg, beautiful.blk)
 -- Awesome Bar
 --------------
 -- Bar length handling.
-local bar_length = beautiful.is_bar_horizontal and dpi(beautiful.full_width - 10)
-                                               or dpi(beautiful.full_height - 10)
+local bar_length
+
+if beautiful.bar_gap then
+    bar_length = beautiful.is_bar_horizontal and dpi(beautiful.full_width - 10) or dpi(beautiful.full_height - 10)
+else
+    bar_length = beautiful.is_bar_horizontal and dpi(beautiful.full_width) or dpi(beautiful.full_height)
+end
+
 
 -- The actual bar itself
 screen.connect_signal("request::desktop_decoration", function(s)
@@ -273,7 +279,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         screen   = s,
         width    = beautiful.is_bar_horizontal and dpi(bar_length) or dpi(beautiful.bar_size),
         height   = beautiful.is_bar_horizontal and dpi(beautiful.bar_size) or dpi(bar_length),
-        shape = helpers.mkroundedrect(),
+        shape    = beautiful.bar_gap and helpers.mkroundedrect() or helpers.mkroundedrect(0),
         widget   = {
             {
                 { -- Top Widgets
