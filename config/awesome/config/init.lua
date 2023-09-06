@@ -1,8 +1,5 @@
------------------------------
--- window manager settings --
------------------------------
-
-require('config.keys')
-require('config.layouts')
-require('config.rules')
-require('config.scripts')
+return {
+   apps = require('config.apps'),
+   vars = require('config.vars'),
+   user = require('config.user')
+}
