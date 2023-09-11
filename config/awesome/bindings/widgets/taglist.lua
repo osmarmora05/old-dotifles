@@ -18,20 +18,20 @@ return {
             end
          end,
       },
-      awful.button{
-         modifiers = {},
-         button    = 3,
-         on_press  = awful.tag.viewtoggle,
-      },
-      awful.button{
-         modifiers = {mod.super},
-         button    = 3,
-         on_press  = function(t)
-            if client.focus then
-               client.focus:toggle_tag(t)
-            end
-         end
-      },
+      -- awful.button{
+      --    modifiers = {},
+      --    button    = 3,
+      --    on_press  = awful.tag.viewtoggle,
+      -- },
+      -- awful.button{
+      --    modifiers = {mod.super},
+      --    button    = 3,
+      --    on_press  = function(t)
+      --       if client.focus then
+      --          client.focus:toggle_tag(t)
+      --       end
+      --    end
+      -- },
       awful.button{
          modifiers = {},
          button    = 4,
