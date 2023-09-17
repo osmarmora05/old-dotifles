@@ -51,6 +51,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
    -- volume indicator 
    widgets.popups.volume_popus(s)
 
+   widgets.dock(s)
 end)
 
 awful.screen.connect_for_each_screen(function(s)

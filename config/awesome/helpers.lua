@@ -102,5 +102,14 @@ function _F.indexOf (array, value)
    return nil
    end
 
+function _F.inTable(t, v)
+      for _, value in ipairs(t) do
+        if value == v then
+          return true
+        end
+      end
+    
+      return false
+    end
 
 return _F
