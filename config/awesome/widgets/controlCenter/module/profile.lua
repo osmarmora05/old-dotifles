@@ -52,7 +52,7 @@ awful.spawn.easy_async_with_shell(
 -- description/host
 local desc = wibox.widget{
     widget = wibox.widget.textbox,
-    markup = helpers.colorize_text('I like french 		fries', beautiful.fg_dark .. '99'),
+    markup = helpers.colorize_text('AwesomeWM is awesome', beautiful.fg_dark .. '99'),
     font = beautiful.font_sans .. '10',
     align = 'left',
     valign = 'center'
