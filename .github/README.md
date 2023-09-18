@@ -26,6 +26,7 @@
 <div align="center">
 <img src="./screenshots/1.jpg" alt="showcase1">
 <img src="./screenshots/2.jpg" alt="showcase2">
+<img src="./screenshots/4.jpg" alt="showcase4">
 <img src="./screenshots/3.jpg" alt="showcase3">
 </div>
 
@@ -84,7 +85,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     - [maim](https://github.com/naelstrof/maim),
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
-    - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) (icon pack)
+    - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme)  (icon pack)
     - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf),
     [Material Icons](https://github.com/google/material-design-icons) and [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
@@ -93,12 +94,16 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     <p align="center">
       <b> </b>
     </p>
-  
+
+    > **Important**
+    > The following commands do not include the dependency: [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme)
+
+
     <details>
     <summary><b> In fedora (Fedora-based distributions)</b></summary>
 
     ```shell
-    sudo dnf install NetworkManager pipewire wireplumber maim slop xclip brightnessctl bluez upower 
+    sudo dnf install NetworkManager pipewire wireplumber maim slop xclip brightnessctl bluez upower papirus-icon-theme
     ```
 
     </details>
@@ -107,7 +112,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     <summary><b> In Arch</b></summary>
 
     ```shell
-    sudo yay -s NetworkManager pipewire wireplumber main slop xclip brightnessctl bluez upower
+    sudo yay -s NetworkManager pipewire wireplumber main slop xclip brightnessctl bluez upower papirus-icon-theme
     ```
 
     </details>
@@ -291,8 +296,81 @@ local desc = wibox.widget{
 }
 ```
 
-
 In the part that says `AwesomeWM is awesome`, add the description that you like, make it brief
+
+
+---
+
+- Dock
+
+~ `Add programs to the dock` To add or delete a program, go to the following file `widgets/dock/init.lua` and edit the following code fragment:
+
+```lua
+-- making some pinned apps
+    local metadata = {
+      {
+        name = "nautilus",
+        id = 1,
+        count = 0,
+        clients = {},
+        class = "nautilus"
+      },
+      {
+        count = 0,
+        id = 2,
+        clients = {},
+        name = "kitty",
+        class = "kitty"
+      },
+      {
+        count = 0,
+        id = 3,
+        clients = {},
+        name = "brave-browser",
+        class = "brave-browser"
+      },
+      {
+        count = 0,
+        id = 4,
+        name = "obsidian",
+        clients = {},
+        class = "obsidian"
+      },
+      {
+        count = 0,
+        id = 5,
+        name = "code",
+        clients = {},
+        class = "code"
+      },
+      {
+        count = 0,
+        id = 6,
+        name = "discord",
+        clients = {},
+        class = "discord"
+      },
+      {
+        count = 0,
+        id = 7,
+        name = "spotify",
+        clients = {},
+        class = "spotify"
+      },
+    }
+    
+    local classes = { "kitty", "discord", "obsidian", "brave-browser", "spotify", "nautilus", "code" }
+```
+The elements of the `metadata` table are composed of:
+
+1. `count`: Indicates the number of clients.
+
+2. `id`: This is a unique identifier for each pinned program. In addition, it serves the purpose of avoiding duplicates, ensuring that the same pinned program does not appear multiple times.
+
+3. `name` and `class`: These fields represent the command to be executed with its respective icon. The information for each of these fields is located in the following location: `/usr/share/icons/WhiteSur/apps/scalable/`.
+
+The class classes contains the combination of command and icon. Any addition or removal of pinned programs must also be done in this arrangement.
+
 
 > **Note**
 This small section can be taken as a personalization guide for my configuration. Don't think that this is the only thing they can do with my configuration, they can totally modify it, steal widgets, basically they want them.
@@ -458,6 +536,10 @@ local themes      = {
 ```
 Therefore you must add an image with the name of the color scheme in the path `widgets/controlCenter/module/images/` with a size of `355x255`
 
+---
+
+~ `Path in which the task list is saved` It is saved here: `.cache/awesome/todos.json`
+
 </details>
 
 <!-- MODULES -->
@@ -486,8 +568,8 @@ AwesomeWM Modules:
 
 My configuration files are the result of merging the brilliant [gwileful](https://github.com/Gwynsav/gwileful) and [crystal](https://github.com/chadcat7/crystal) projects. So without them this would not have been possible.  ૮꒰ ˶• ༝ •˶꒱ა ♡
 
-- [gw creator gwileful](https://github.com/Gwynsav/)
-- [chadcat7 creator crystal](https://github.com/chadcat7/)
+- [gw's creator gwileful](https://github.com/Gwynsav/)
+- [chadcat7's creator crystal](https://github.com/chadcat7/)
 
 <!-- REFERENCES -->
 ## References
