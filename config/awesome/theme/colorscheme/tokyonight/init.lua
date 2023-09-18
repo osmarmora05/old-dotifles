@@ -27,4 +27,5 @@ _C.magenta      = '#bb9af7'
 _C.magenta_d    = '#a589d7'
 _C.cyan         = '#7dcfff'
 _C.cyan_dark    = '#76bce4'
+
 return _C
