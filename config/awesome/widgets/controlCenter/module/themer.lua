@@ -11,7 +11,7 @@ local gfs         = gears.filesystem
 
 
 
-local preview_image = gfs.get_configuration_dir() .. 'widgets/controlCenter/module/images/'
+local preview_image = gfs.get_configuration_dir() .. 'theme/preview/'
 
 -- Change value of colorscheme = "palletes" depending on the set value of the widget
 local function set_theme(text,line,path)
@@ -69,7 +69,8 @@ local themes      = {
   'plata',
   'adwaita',
   'janleigh',
-  'default'
+  'default',
+  'wave'
 }
 
 local function reset()
