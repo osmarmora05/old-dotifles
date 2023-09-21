@@ -305,13 +305,20 @@ local tomfoolery = function(s)
       {
         count = 0,
         id = 7,
+        name = "firefox",
+        clients = {},
+        class = "firefox"
+      },
+      {
+        count = 0,
+        id = 8,
         name = "spotify",
         clients = {},
         class = "spotify"
-      },
+      }
     }
     -- end
-    local classes = { "kitty", "discord", "obsidian", "brave-browser", "spotify", "nautilus", "code" }
+    local classes = { "kitty", "discord", "obsidian", "brave-browser", "spotify", "nautilus", "code","firefox" }
     local dockElements = wibox.widget { layout = layout, spacing = 5 }
     -- generating the data
     for _, c in ipairs(clients) do
