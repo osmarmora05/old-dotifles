@@ -301,7 +301,7 @@ In the part that says `AwesomeWM is awesome`, add the description that you like,
 
 ---
 
-- Dock
+- Dock:
 
 ~ `Add programs to the dock` To add or delete a program, go to the following file `widgets/dock/init.lua` and edit the following code fragment:
 
@@ -534,7 +534,7 @@ local themes      = {
   'default'
 }
 ```
-Therefore you must add an image with the name of the color scheme in the path `widgets/controlCenter/module/images/` with a size of `355x255`
+Therefore you must add an image with the name of the color scheme in the path `theme/preview/` with a size of `355x255`
 
 ---
 
