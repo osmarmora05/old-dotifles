@@ -6,7 +6,7 @@ return {
    
    -- Colorscheme, supports:
    ---  dark:
-   ---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula',
+   ---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula','wave','ephemeral','amarena'
    --      'default', 'gruvbox_dark', 'adwaita', 'janleigh'
    ---  light:
    ---    'gruvbox_light', 'solarized','plata'
@@ -18,7 +18,7 @@ return {
    -- FILE 'awesome/widgets/control_center/module/themer.lua',
    -- set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,gfs.get_configuration_dir() ..
    -- "config/username.lua")
-   colorscheme = "everblush",
+   colorscheme = "wave",
    
    -- Files
    -- You can comment the variable 'avatar' 'wallpaper', 

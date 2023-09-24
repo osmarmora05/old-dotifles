@@ -67,7 +67,9 @@ local themes      = {
   'adwaita',
   'janleigh',
   'default',
-  'wave'
+  'wave',
+  'ephemeral',
+  'amarena'
 }
 
 local function reset()
