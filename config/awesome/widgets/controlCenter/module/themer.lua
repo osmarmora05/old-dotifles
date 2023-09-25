@@ -69,7 +69,8 @@ local themes      = {
   'default',
   'wave',
   'ephemeral',
-  'amarena'
+  'amarena',
+  'skyfall'
 }
 
 local function reset()
