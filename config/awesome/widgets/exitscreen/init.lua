@@ -9,6 +9,7 @@ local helpers = require('helpers')
 local powerofficon = '󰐥 '
 local rebooticon = '󰜉 '
 local exiticon = '󰈆 '
+local suspendicon = '󰤄 '
 
 
 local poweroffcommand = function()
@@ -19,6 +20,11 @@ end
 local rebootcommand = function()
   awful.spawn.with_shell('systemctl reboot')
   awesome.emit_signal('hide::exit')
+end
+
+local suspendcommnad = function ()
+  awesome.emit_signal('hide::exit')
+  awful.spawn.with_shell("systemctl suspend")
 end
 
 local exitcommand = function()
@@ -83,6 +89,7 @@ end
 local poweroffbutton = createButton(powerofficon, poweroffcommand, beautiful.red)
 local rebootbutton = createButton(rebooticon, rebootcommand, beautiful.blue)
 local exitbutton = createButton(exiticon, exitcommand, beautiful.yellow)
+local suspendbutton = createButton(suspendicon,suspendcommnad,beautiful.cyan)
 
 
 local box = wibox.widget {
@@ -91,6 +98,7 @@ local box = wibox.widget {
       poweroffbutton,
       rebootbutton,
       exitbutton,
+      suspendbutton,
       layout = wibox.layout.fixed.horizontal,
       spacing = 40,
     },
@@ -108,6 +116,8 @@ local exit_screen_grabber = awful.keygrabber({
       exitcommand()
     elseif key == 'p' then
       poweroffcommand()
+    elseif key=='s' then
+      suspendcommnad()
     elseif key == 'r' then
       rebootcommand()
     elseif key == 'Escape' or key == 'q' or key == 'x' then
@@ -162,7 +172,3 @@ return function (s)
 
     return exit
 end
-
-
-
-
