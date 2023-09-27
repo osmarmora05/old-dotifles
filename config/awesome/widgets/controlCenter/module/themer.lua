@@ -144,6 +144,7 @@ local final_widget = wibox.widget {
                   set_theme('   colorscheme = "' .. currTheme:gsub('"', '\\"') .. '",',21,gfs.get_configuration_dir() .. "config/user.lua") --Change theme
                   -- set_theme("include " .. currTheme .. ".ini",3,os.getenv("HOME") .. "/.config/kitty/kitty.conf") --Change terminal color (kitty)
                   -- set_theme('@import "'..currTheme:gsub('"', '\\"') .. '.rasi"',1,os.getenv("HOME") .. "/.config/rofi/appmnu.rasi") --Change rofi color
+                  awesome.restart()
                 end),
               },
               spacing = 10,
