@@ -86,7 +86,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
     - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme)  (icon pack)
-    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf),
+    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
     [Material Icons](https://github.com/google/material-design-icons) and [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
     - [bluez](https://github.com/bluez/bluez) (bluetooth signals)
@@ -96,7 +96,8 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     </p>
 
     > **Important**
-    > The following commands do not include the dependency: [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme)
+    > The following commands do not include the dependency: [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme), [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
+    [Material Icons](https://github.com/google/material-design-icons), [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 
     <details>
