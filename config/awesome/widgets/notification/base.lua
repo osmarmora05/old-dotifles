@@ -1,0 +1,266 @@
+local naughty   = require('naughty')
+local beautiful = require('beautiful')
+local gears     = require('gears')
+local awful     = require('awful')
+local wibox     = require('wibox')
+
+local dpi       = beautiful.xresources.apply_dpi
+
+local helpers   = require('helpers')
+local rubato    = require('modules.rubato')
+
+local def_icon =
+   gears.color.recolor_image(gears.filesystem.get_configuration_dir() .. 'theme/assets/awesome.svg', beautiful.fg_normal)
+
+local _W = {}
+
+function _W.init_actions()
+   require('widgets.notification.actions.battery')
+   require('widgets.notification.actions.wifi')
+   require('widgets.notification.actions.bluetooth')
+   require('widgets.notification.actions.microphone')
+end
+
+
+function _W.title(n)
+   return wibox.widget {
+      widget = wibox.container.scroll.horizontal,
+      speed  = 66,
+      rate   = 60,
+      step_function = wibox.container.scroll.step_functions.nonlinear_back_and_forth,
+      {
+         widget = wibox.widget.textbox,
+         markup = n.title ~= nil and '<b>' .. n.title .. '</b>'
+            or '<b>Notification</b>',
+         font   = beautiful.font_sans .. dpi(10),
+         halign = 'center',
+         valign = 'center'
+      }
+   }
+end
+
+function _W.body(n)
+   return wibox.widget {
+      widget = wibox.container.scroll.vertical,
+      speed  = 66,
+      rate   = 60,
+      step_function = wibox.container.scroll.step_functions.nonlinear_back_and_forth,
+      {
+         widget = wibox.widget.textbox,
+         markup = gears.string.xml_unescape(n.message),
+         font   = beautiful.font_sans .. dpi(9),
+         halign = 'center',
+         valign = 'center'
+      }
+   }
+end
+
+function _W.image(n)
+   return wibox.widget {
+      widget = wibox.widget.imagebox,
+      image  = n.icon and helpers.crop_surface(1, gears.surface.load_uncached(n.icon))
+         or def_icon,
+      resize = true,
+      halign = 'center',
+      valign = 'center',
+      clip_shape = function(c, w, h)
+         gears.shape.rounded_rect(c, w, h, dpi(8))
+      end,
+      forced_height = dpi(40),
+      forced_width = dpi(40)
+   }
+end
+
+function _W.timeout()
+   return wibox.widget {
+      widget           = wibox.widget.progressbar,
+      min_value        = 0,
+      max_value        = 100,
+      value            = 0,
+      background_color = beautiful.bg_light,
+      shape            = function(c, w, h)
+         gears.shape.rounded_rect(c, w, h, dpi(6))
+      end,
+      bar_shape        = function(c, w, h)
+         gears.shape.rounded_rect(c, w, h, dpi(4))
+      end,
+      color            = {
+         type  = 'linear',
+         from  = { 0, 0   },
+         to    = { 0, 100 },
+         stops = { { 0, beautiful.green }, { 1, beautiful.green_dark } }
+      },
+      forced_height    = dpi(6)
+   }
+end
+
+function _W.actions(n)
+   if #n.actions == 0 then return nil end
+   return wibox.widget {
+      widget  = wibox.container.margin,
+      margins = { top = dpi(2) },
+      {
+         widget       = naughty.list.actions,
+         notification = n,
+         base_layout  = wibox.widget {
+            spacing = dpi(4),
+            layout  = wibox.layout.flex.horizontal
+         },
+         style = {
+            underline_normal   = false,
+            underline_selected = false,
+            bg_normal          = beautiful.mid_dark,
+            shape_normal       = function(c, w, h)
+               gears.shape.rounded_rect(c, w, h, dpi(6))
+            end,
+            border_width       = 0
+         },
+         widget_template = {
+            widget = wibox.container.background,
+            bg     = beautiful.mid_dark,
+            id     = 'background_role',
+            {
+               widget  = wibox.container.margin,
+               margins = dpi(4),
+               {
+                  widget = wibox.widget.textbox,
+                  id     = 'text_role',
+                  font   = beautiful.font_sans .. dpi(7)
+               }
+            }
+         }
+      }
+   }
+end
+
+function _W.close(n)
+   local widget = wibox.widget {
+      widget = wibox.container.background,
+      bg     = beautiful.red_dark .. 'a0',
+      forced_width = dpi(32),
+      buttons = { awful.button({}, 1, function() n:destroy() end) }
+   }
+   widget:connect_signal('mouse::enter', function()
+      widget.bg = beautiful.red_dark
+   end)
+   widget:connect_signal('mouse::leave', function()
+      widget.bg = beautiful.red_dark .. 'a0'
+   end)
+
+   return widget
+end
+
+
+-- Default layout
+function _W.layout(n)
+   -- Store the original timeout, and change it to a big, unreachable, number.
+   local timeout = n.timeout
+   n.timeout = 999999
+
+   local timeout_bar = _W.timeout()
+
+   local widget = naughty.layout.box {
+      notification = n,
+      cursor       = 'hand2',
+      border_width = 0,
+      bg           = beautiful.transparent,
+      shape        = function(c, w, h)
+         gears.shape.rounded_rect(c, w, h, dpi(6))
+      end,
+      widget_template = {
+         widget   = wibox.container.constraint,
+         strategy = 'max',
+         height   = dpi(250),
+         {
+            widget   = wibox.container.constraint,
+            strategy = 'exact',
+            width    = dpi(300),
+            {
+               widget = wibox.container.background,
+               bg     = beautiful.bg_normal,
+               shape  = function(c, w, h)
+                  gears.shape.rounded_rect(c, w, h, dpi(8))
+               end,
+               {
+                  widget = wibox.container.margin,
+                  margins = dpi(8),
+                  {
+                     layout = wibox.layout.align.vertical,
+                     {
+                        widget = wibox.container.background,
+                        bg     = beautiful.bg_light,
+                        shape  = function(c, w, h)
+                           gears.shape.rounded_rect(c, w, h, dpi(6))
+                        end,
+                        {
+                           layout = wibox.layout.align.horizontal,
+                           {
+                              widget = wibox.container.constraint,
+                              strategy = 'max',
+                              width = dpi(250),
+                              {
+                                 widget = wibox.container.margin,
+                                 margins = {
+                                    left = dpi(10), right = dpi(10),
+                                    top = dpi(5), bottom = dpi(5)
+                                 },
+                                 _W.title(n)
+                              }
+                           },
+                           nil,
+                           _W.close(n)
+                        }
+                     },
+                     {
+                        widget = wibox.container.margin,
+                        margins = {
+                           left = dpi(8), right = dpi(8),
+                           top = dpi(12), bottom = dpi(12)
+                        },
+                        {
+                           layout = wibox.layout.fixed.horizontal,
+                           spacing = dpi(10),
+                           {
+                              layout = wibox.layout.align.vertical,
+                              _W.image(n),
+                              nil, nil
+                           },
+                           {
+                              layout = wibox.layout.fixed.vertical,
+                              spacing = dpi(4),
+                              _W.body(n),
+                              _W.actions(n)
+                           }
+                        }
+                     },
+                     timeout_bar
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   -- Set an animation for the timeout.
+   local anim = rubato.timed {
+      intro      = 0,
+      duration   = timeout,
+      subscribed = function(pos, time)
+         timeout_bar.value = pos
+         if time == timeout then n:destroy() end
+      end
+   }
+   -- Whenever the notification is hovered, the animation (and timeout) are paused.
+   widget:connect_signal('mouse::enter', function()
+      anim.pause = true
+   end)
+   widget:connect_signal('mouse::leave', function()
+      anim.pause = false
+   end)
+   anim.target = 100
+   widget.buttons = {}
+   return widget
+   
+end
+
+return _W
