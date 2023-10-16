@@ -6,7 +6,7 @@ return {
    
    -- Colorscheme, supports:
    ---  dark:
-   ---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula','wave','ephemeral','amarena'
+   ---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula',
    --      'default', 'gruvbox_dark', 'adwaita', 'janleigh'
    ---  light:
    ---    'gruvbox_light', 'solarized','plata'
@@ -18,14 +18,14 @@ return {
    -- FILE 'awesome/widgets/control_center/module/themer.lua',
    -- set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,gfs.get_configuration_dir() ..
    -- "config/username.lua")
-   colorscheme = "wave",
+   colorscheme = "amarena",
    
    -- Files
    -- You can comment the variable 'avatar' 'wallpaper', 
    -- so that by default it selects the images in theme/palettes/pallete_name 
    -- and the avatar in theme/assets/user.png
 
-   avatar         = home .. 'Pictures/avatars/leinu-transformed.png',
-   wallpaper      = home .. 'Pictures/walls/landscape/AustralianPowerlines.jpg',
+   --avatar         = home .. 'Pictures/avatars/leinu-transformed.png',
+   --wallpaper      = home .. 'Pictures/walls/landscape/AustralianPowerlines.jpg',
    screenshot_dir = home .. 'Imágenes/Screenshots',
 }
