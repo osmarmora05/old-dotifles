@@ -32,7 +32,6 @@ return _C
 
 
 
-
 -- *background:	#323F4E
 -- *foreground:	#F8F8F2
 -- *cursorColor:	#F8F8F2
