@@ -15,16 +15,16 @@ awesome.connect_signal('signal::microphone', function(mic_level, mic_muted)
     else
         if mic_muted then
             naughty.notification({
-                icon    = gc.recolor_image(gfs.get_configuration_dir() .. 'theme/assets/notification/microphone_on.svg', beautiful.green),
+                icon    = gc.recolor_image(gfs.get_configuration_dir() .. 'theme/assets/notification/microphone_off.svg', beautiful.red),
                 title   = 'Microphone',
-                message    = 'Microphone on',
+                message    = 'Microphone off',
                 actions = { ok }
                })
         else
             naughty.notification({
-                icon    = gc.recolor_image(gfs.get_configuration_dir() .. 'theme/assets/notification/microphone_off.svg', beautiful.red),
+                icon    = gc.recolor_image(gfs.get_configuration_dir() .. 'theme/assets/notification/microphone_on.svg', beautiful.green),
                 title   = 'Microphone',
-                message    = 'Microphone off',
+                message    = 'Microphone on',
                 actions = { ok }
                })
         end
