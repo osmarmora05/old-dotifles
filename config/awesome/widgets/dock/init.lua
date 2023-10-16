@@ -210,7 +210,7 @@ local tomfoolery = function(s)
       {
         name = "discord",
         convert = "discord",
-        command = "Discord"
+        command = "flatpak run com.discordapp.Discord"
       },
       {
         name = "obsidian",
