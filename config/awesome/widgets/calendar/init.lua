@@ -12,7 +12,7 @@ local panel = wibox {
    visible = false,
    width   = dpi(400),
    height  = dpi(520),
-   y       = dpi(55),
+   y       = dpi(5),
    x       = dpi(1510),
    bg      = beautiful.bg_normal,
    shape   = helpers.rounded_rect(dpi(4)),
@@ -41,7 +41,6 @@ local panel = wibox {
       }
    }
 }
-
 
 function panel:show()
    panel.visible = not panel.visible

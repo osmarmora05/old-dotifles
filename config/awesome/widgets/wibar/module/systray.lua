@@ -10,7 +10,7 @@ local dpi         = beautiful.xresources.apply_dpi
 
 local togglertext = wibox.widget {
   font = beautiful.font_icon .. ' 18',
-  text = '󰅁',
+  text = '󰅃',
   valign = 'center',
   align = 'center',
   buttons = {
@@ -38,10 +38,10 @@ local systray     = wibox.widget {
 awesome.connect_signal('systray::toggle', function()
   if systray.visible then
     systray.visible = false
-    togglertext.text = '󰅁'
+    togglertext.text = '󰅃'
   else
     systray.visible = true
-    togglertext.text = '󰅂'
+    togglertext.text = '󰅀'
   end
 end)
 
@@ -53,7 +53,7 @@ return function ()
       {
         systray,
         togglertext,
-        layout = wibox.layout.fixed.horizontal,
+        layout = wibox.layout.fixed.vertical,
       },
       shape = helpers.rounded_rect(dpi(2)),
       bg = beautiful.bg_normal,
@@ -63,8 +63,3 @@ return function ()
     widget  = wibox.container.margin,
   }
 end
-
-
-
-
-

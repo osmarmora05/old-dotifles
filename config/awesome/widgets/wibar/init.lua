@@ -7,43 +7,37 @@ local dpi       = beautiful.xresources.apply_dpi
 
 local modules   = require('widgets.wibar.module')
 
--- ? Add functionality to hide the wibar? but if it were added, 
--- ? think of a logic when the menubar is shown, since if it is hidden, why does it show the menubar.
 
-
-return function(s)
+return function (s)
    return awful.wibar {
-      screen   = s,
-      position = 'top',
-      height   = dpi(48),
-      widget   = {
+      screen = s,
+      position = 'left',
+      width = dpi(50),
+      widget = {
          widget = wibox.container.background,
-         bg     = beautiful.bg_normal,
+         bg = beautiful.bg_normal,
          {
-            widget  = wibox.container.margin,
+            widget = wibox.container.margin,
             margins = {
-               left = dpi(10), right = dpi(10),
-               top = dpi(6), bottom = dpi(6)
+               left = dpi(5),
+               right = dpi(5),
+               top = dpi(10),
+               bottom = dpi(10)
             },
             {
-               layout = wibox.layout.align.horizontal,
-               expand = 'none',
-               -- left widgets
+               layout = wibox.layout.align.vertical,
                {
-                  layout  = wibox.layout.fixed.horizontal,
+                  layout = wibox.layout.fixed.vertical,
                   spacing = dpi(10),
-                  --modules.clock(),
                   modules.distro_icon(),
-                  modules.search(),
-                  modules.tasklist(s)
+                  modules.taglist(s),
                },
-               -- middle widgets
-               modules.taglist(s),  
-               -- right widgets
+               modules.tasklist(s),
                {
-                  layout  = wibox.layout.fixed.horizontal,
-                  spacing = dpi(16),
+                  layout = wibox.layout.fixed.vertical,
+                  spacing = dpi(10),
                   modules.systray(),
+                  modules.search(),
                   modules.battery,
                   modules.wifi(),
                   modules.clock(),

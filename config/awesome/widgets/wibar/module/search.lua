@@ -1,42 +1,27 @@
 -- by chadcat7
 
-local beautiful = require('beautiful')
-local wibox = require('wibox')
-local awful = require('awful')
-local helpers = require('helpers')
-local dpi       = beautiful.xresources.apply_dpi
-local menubar       = require('menubar')
+local beautiful  = require('beautiful')
+local wibox      = require('wibox')
+local awful      = require('awful')
+local menubar    = require('menubar')
+local dpi        = beautiful.xresources.apply_dpi
+local helpers    = require('helpers')
 
 
 return function ()
   local search = wibox.widget {
-  {
     {
-      {
-        font = beautiful.font_icon .. ' 14',
-        markup = helpers.colorize_text('󰍉 ', beautiful.blue),
-        widget = wibox.widget.textbox,
-        valign = 'center',
-        align = 'center'
-      },
-      {
-        id = 'search',
-        font = beautiful.font_sans .. ' 11',
-        markup = 'Search',
-        widget = wibox.widget.textbox,
-        valign = 'center',
-        align = 'center'
-      },
-      spacing = 10,
-      layout = wibox.layout.fixed.horizontal
+        {
+          text = '󰍉',
+            font    = beautiful.font_icon .. '15',
+            align   = 'center',
+            widget  = wibox.widget.textbox,
+        },
+        margins = dpi(5),
+        widget  = wibox.container.margin
     },
-    widget = wibox.container.margin,
-    margins = 7,
-  },
-  forced_width = 150,
-  shape = helpers.rounded_rect(dpi(4)),
-  widget = wibox.container.background,
-  bg = beautiful.bg_light .. 'cc'
+    shape  = helpers.rounded_rect(dpi(4)),
+    widget = wibox.container.background
 }
 
 
@@ -44,7 +29,7 @@ search:connect_signal('mouse::enter', function()
   search.bg = beautiful.mid_dark
 end)
 search:connect_signal('mouse::leave', function()
-  search.bg = beautiful.bg_light
+  search.bg = beautiful.bg_normal
 end)
 
 search.buttons = {
@@ -55,5 +40,3 @@ search.buttons = {
 
 return search
 end
-
-

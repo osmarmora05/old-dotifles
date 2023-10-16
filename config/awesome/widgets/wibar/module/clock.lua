@@ -9,26 +9,33 @@ local panel     = require('widgets.calendar')
 
 return function()
    local clock = wibox.widget {
-      widget = wibox.container.background,
-      shape  = helpers.rounded_rect(dpi(4)),
-      bg     = beautiful.bg_light,
       {
-         widget  = wibox.container.margin,
-         margins = {
-            left = dpi(12), right = dpi(12),
-            top = dpi(6), bottom = dpi(6)
-         },
-         {
-            layout  = wibox.layout.fixed.horizontal,
-            spacing = dpi(8),
-            {
-               widget = wibox.widget.textclock,
-               format = '%H:%M',
-               font   = beautiful.font_mono .. 'Bold ' .. dpi(10)
-            }
-         }
-      }
-   }
+          {
+              {
+                  format = '<b>%H</b>',
+                  font   = beautiful.font_mono .. 'Bold ' .. dpi(11),
+                  halign = "center",
+                  widget = wibox.widget.textclock
+              },
+              {
+                  {
+                      format = '<b>%M</b>',
+                      font   = beautiful.font_mono .. dpi(11),
+                      halign = "center",
+                      widget = wibox.widget.textclock
+                  },
+                  fg     = beautiful.fg_normal ..'90',
+                  widget = wibox.container.background
+              },
+              layout  = wibox.layout.fixed.vertical
+          },
+          margins = dpi(10),
+          widget  = wibox.container.margin
+      },
+      bg     = beautiful.bg_light,
+      shape  = helpers.rounded_rect(4),
+      widget = wibox.container.background
+    }
 
    clock:connect_signal('mouse::enter', function()
       clock.bg = beautiful.mid_dark
@@ -42,6 +49,6 @@ return function()
          panel:show()
       end)
    }
-   
+
    return clock
 end

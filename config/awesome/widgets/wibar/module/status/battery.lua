@@ -1,9 +1,9 @@
-local gears = require('gears')
-local wibox = require('wibox')
+local gears     = require('gears')
+local wibox     = require('wibox')
 local beautiful = require('beautiful')
-local dpi = beautiful.xresources.apply_dpi
-local helpers = require('helpers')
-local todo_panel = require('widgets.todo-panel')
+local dpi       = beautiful.xresources.apply_dpi
+local helpers   = require('helpers')
+local todo_panel= require('widgets.todo-panel')
 local awful     = require('awful')
 
 
@@ -25,7 +25,7 @@ local battery_threshold_low = 20
 local battery_bar = wibox.widget{
     max_value = 100,
     forced_height = dpi(50),
-    forced_width = dpi(120),
+    forced_width = dpi(100),
     bar_shape = gears.shape.rectangle,
     color = happy_color,
     background_color = happy_color..'55',
@@ -34,12 +34,12 @@ local battery_bar = wibox.widget{
 
 local battery_bar_container = wibox.widget {
     battery_bar,
-    direction = 'north',
+    direction = 'east', --Progress
     widget = wibox.container.rotate
 }
 
 local charging_icon = wibox.widget {
-    font = beautiful.font_icon .. '10',
+    font = beautiful.font_icon .. '8',
     valign = 'center',
     markup = helpers.colorize_text('', beautiful.bg_normal .. '80'),
     widget = wibox.widget.textbox()
@@ -154,7 +154,7 @@ local final_widget =  wibox.widget {
         battery_bar_container,
         shape = helpers.rounded_rect(dpi(5)),
         border_color = stroke,
-        border_width = dpi(4),
+        border_width = dpi(2),
         widget = wibox.container.background
     },
     {
@@ -165,8 +165,8 @@ local final_widget =  wibox.widget {
             expand = 'none',
             layout = wibox.layout.align.horizontal
         },
-        left = dpi(60),
-        bottom = dpi(5),
+        left = dpi(25),
+        bottom = dpi(25),
         widget = wibox.container.margin
     },
     {
