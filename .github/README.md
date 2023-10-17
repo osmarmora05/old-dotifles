@@ -26,9 +26,31 @@
 <div align="center">
 <img src="./screenshots/1.jpg" alt="showcase1">
 <img src="./screenshots/2.jpg" alt="showcase2">
-<img src="./screenshots/4.jpg" alt="showcase4">
-<img src="./screenshots/3.jpg" alt="showcase3">
+<img src="./screenshots/3.jpg" alt="showcase4">
+<img src="./screenshots/4.jpg" alt="showcase3">
 </div>
+
+
+<details>
+<summary><b>All rice</b></summary>
+<div align="center">
+
+[11071b988f2fe6366e4da23a0f5f39aafbace91a](https://github.com/osmarmora05/dotfiles/tree/bfc3945fb35169c784e6daba09c7ddb0c79eaa99) 
+
+<img src="./all_rice/1.jpg" alt="showcase1">
+
+[10c97341049570d728a2459efd0fa265935d8f0a](https://github.com/osmarmora05/dotfiles/tree/93bd1b49a286055f1b78c4afee51a0345cee6f4c)
+
+<img src="./all_rice/2.jpg" alt="showcase2">
+
+[f58fe8e4968143657b9663cba285fe83c076618c](https://github.com/osmarmora05/dotfiles/tree/5bc7631cee7a86fe4dd0dfde5f0420dee67b029b)
+<img src="./all_rice/3.jpg" alt="showcase4">
+
+[2e52aaa304cdb2031cc53b73e7833846da84e079](https://github.com/osmarmora05/dotfiles/tree/a30281c92ea9e78e96c609c5c558e3e45e79f367)
+
+<img src="./all_rice/4.jpg" alt="showcase3">
+</div>
+</details>
 
 <!-- WARNING BROKEN CODE -->
 > **Warning**
