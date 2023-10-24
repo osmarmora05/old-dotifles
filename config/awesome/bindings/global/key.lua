@@ -10,6 +10,9 @@ local screenshot    = require('script.screenshot')
 local calendar     = require('widgets.calendar')
 local control_center = require('widgets.controlCenter')
 local todo_panel = require('widgets.todo-panel')
+local gears  = require('gears')
+local gfs    = gears.filesystem
+local config_dir = gfs.get_configuration_dir() 
 
 menubar.utils.terminal = apps.terminal
 
@@ -341,6 +344,15 @@ awful.keyboard.append_global_keybindings {
       description = 'takes a selection screenshot',
       group       = 'miscelaneous',
       on_press    = screenshot.selection
+   },
+   
+   --color picker
+   awful.key {
+      modifiers   = {mod.super},
+      key         = 'o',
+      description = 'takes color picker',
+      group       = 'miscelaneous',
+      on_press    = function() awful.spawn(config_dir .. 'script/xcolor-pick') end
    },
 
    -- Volume
