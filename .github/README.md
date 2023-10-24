@@ -91,6 +91,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
     - [bluez](https://github.com/bluez/bluez) (bluetooth signals)
     - [upower](https://github.com/freedesktop/upower) (battery signals)
+    - [gpick](https://github.com/thezbyg/gpick) , [ImageMagick](https://github.com/ImageMagick/ImageMagick) (color picker)
     <p align="center">
       <b> </b>
     </p>
@@ -104,7 +105,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     <summary><b> In fedora (Fedora-based distributions)</b></summary>
 
     ```shell
-    sudo dnf install NetworkManager pipewire wireplumber maim slop xclip brightnessctl bluez upower papirus-icon-theme
+    sudo dnf install NetworkManager pipewire wireplumber maim slop xclip brightnessctl bluez upower papirus-icon-theme gpick ImageMagick
     ```
 
     </details>
@@ -113,7 +114,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     <summary><b> In Arch</b></summary>
 
     ```shell
-    sudo yay -s NetworkManager pipewire wireplumber main slop xclip brightnessctl bluez upower papirus-icon-theme
+    sudo yay -s NetworkManager pipewire wireplumber main slop xclip brightnessctl bluez upower papirus-icon-theme gpick imagemagick
     ```
 
     </details>
@@ -252,6 +253,7 @@ set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,
 | `XF86MonBrightnessDown`| Decrease screen backlight brightness.                      |
 | `Print`                | Take cursor selection screenshot.                          |
 | `mod + Print`          | Take fullscreen screenshot.                                |
+| `mod + o`          | Color picker.                                |
 | Tag                    | -                                                          |
 | `Control + mod + 1/2/3/4/5/6/7/8/9/0` | Toggle tag.                                 |
 | `Shift + mod + 1/2/3/4/5/6/7/8/9/0` | Move focused client to tag.                   |
