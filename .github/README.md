@@ -150,7 +150,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     cd dotfiles
     cp -r config/* ~/.config/
     ```
-    **Optional** - Now if you want to get the source from the repository
+    **Optional** - Now if you want to get the fonts from the repository
 
     ```shell
     cd dotfiles
