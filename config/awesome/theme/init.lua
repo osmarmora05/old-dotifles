@@ -66,7 +66,7 @@ end
 
 
 -- Logos/icons/avatar
-_T.distro_logo = gc.recolor_image(asset_path .. 'nix_logo.svg', _T.blue)
+_T.distro_logo = gc.recolor_image(asset_path .. 'flowers.png', _T.blue)
 _T.shutdown_icon = gc.recolor_image(asset_path .. '/power/shutdown.svg',_T.red)
 _T.avatar = user.avatar ~= nil and user.avatar
 or asset_path .. "user.png"
