@@ -21,7 +21,6 @@ function _W.init_actions()
    require('widgets.notification.actions.microphone')
 end
 
-
 function _W.title(n)
    return wibox.widget {
       widget = wibox.container.scroll.horizontal,
@@ -32,7 +31,7 @@ function _W.title(n)
          widget = wibox.widget.textbox,
          markup = n.title ~= nil and '<b>' .. n.title .. '</b>'
             or '<b>Notification</b>',
-         font   = beautiful.font_sans .. dpi(10),
+         font   = beautiful.font_sans .. dpi(9),
          halign = 'center',
          valign = 'center'
       }
@@ -88,7 +87,7 @@ function _W.timeout()
          type  = 'linear',
          from  = { 0, 0   },
          to    = { 0, 100 },
-         stops = { { 0, beautiful.green }, { 1, beautiful.green_dark } }
+         stops = { { 0, beautiful.green }, { 1, beautiful.green .. '8c' } }
       },
       forced_height    = dpi(6)
    }
@@ -135,21 +134,29 @@ end
 
 function _W.close(n)
    local widget = wibox.widget {
-      widget = wibox.container.background,
-      bg     = beautiful.red_dark .. 'a0',
-      forced_width = dpi(32),
-      buttons = { awful.button({}, 1, function() n:destroy() end) }
+      widget  = wibox.container.margin,
+      margins = dpi(9),
+      {
+         widget = wibox.container.background,
+         shape  = gears.shape.circle,
+         bg     = beautiful.red .. '80',
+         id     = 'bg_role',
+         forced_width = dpi(13)
+      },
+      buttons = { awful.button({}, 1, function() n:destroy() end) },
+      set_bg = function(self, bg)
+         self:get_children_by_id('bg_role')[1].bg = bg
+      end
    }
    widget:connect_signal('mouse::enter', function()
-      widget.bg = beautiful.red_dark
+      widget.bg = beautiful.red
    end)
    widget:connect_signal('mouse::leave', function()
-      widget.bg = beautiful.red_dark .. 'a0'
+      widget.bg = beautiful.red .. '80'
    end)
 
    return widget
 end
-
 
 -- Default layout
 function _W.layout(n)
@@ -170,11 +177,11 @@ function _W.layout(n)
       widget_template = {
          widget   = wibox.container.constraint,
          strategy = 'max',
-         height   = dpi(250),
+         height   = dpi(256),
          {
             widget   = wibox.container.constraint,
             strategy = 'exact',
-            width    = dpi(300),
+            width    = dpi(256),
             {
                widget = wibox.container.background,
                bg     = beautiful.bg_normal,
@@ -182,58 +189,73 @@ function _W.layout(n)
                   gears.shape.rounded_rect(c, w, h, dpi(8))
                end,
                {
-                  widget = wibox.container.margin,
-                  margins = dpi(8),
+                  layout = wibox.layout.align.vertical,
                   {
-                     layout = wibox.layout.align.vertical,
+                     widget   = wibox.container.constraint,
+                     strategy = 'exact',
+                     height   = dpi(30),
                      {
                         widget = wibox.container.background,
-                        bg     = beautiful.bg_light,
-                        shape  = function(c, w, h)
-                           gears.shape.rounded_rect(c, w, h, dpi(6))
-                        end,
+                        bg     = beautiful.bg_normal,
                         {
-                           layout = wibox.layout.align.horizontal,
+                           widget = wibox.container.margin,
+                           margins = { left = dpi(12) },
                            {
-                              widget = wibox.container.constraint,
-                              strategy = 'max',
-                              width = dpi(250),
+                              layout = wibox.layout.align.horizontal,
+                              expand = 'none',
                               {
-                                 widget = wibox.container.margin,
-                                 margins = {
-                                    left = dpi(10), right = dpi(10),
-                                    top = dpi(5), bottom = dpi(5)
-                                 },
+                                 widget = wibox.container.constraint,
+                                 strategy = 'max',
+                                 width = dpi(206),
                                  _W.title(n)
-                              }
-                           },
-                           nil,
-                           _W.close(n)
-                        }
-                     },
-                     {
-                        widget = wibox.container.margin,
-                        margins = {
-                           left = dpi(8), right = dpi(8),
-                           top = dpi(12), bottom = dpi(12)
-                        },
-                        {
-                           layout = wibox.layout.fixed.horizontal,
-                           spacing = dpi(10),
-                           {
-                              layout = wibox.layout.align.vertical,
-                              _W.image(n),
-                              nil, nil
-                           },
-                           {
-                              layout = wibox.layout.fixed.vertical,
-                              spacing = dpi(4),
-                              _W.body(n),
-                              _W.actions(n)
+                              },
+                              nil,
+                              _W.close(n)
                            }
                         }
+                     }
+                  },
+                  {
+                     widget = wibox.container.background,
+                     bg     = {
+                        type = 'linear',
+                        from = { 0, 0 },
+                        to   = { 0, 85 },
+                        stops = { { 0, beautiful.bg_light .. '8c' }, { 1, beautiful.bg_normal } }
                      },
-                     timeout_bar
+                     {
+                        layout = wibox.layout.align.vertical,
+                        expand = 'none',
+                        {
+                           widget = wibox.container.margin,
+                           margins = {
+                              left = dpi(9), right = dpi(9),
+                              top = dpi(9), bottom = dpi(9)
+                           },
+                           {
+                              layout = wibox.layout.fixed.horizontal,
+                              spacing = dpi(10),
+                              {
+                                 layout = wibox.layout.align.vertical,
+                                 _W.image(n),
+                                 nil, nil
+                              },
+                              {
+                                 widget = wibox.container.constraint,
+                                 strategy = 'max',
+                                 height = dpi(202),
+                                 {
+                                    layout = wibox.layout.fixed.vertical,
+                                    spacing = dpi(4),
+                                    _W.body(n),
+                                    _W.actions(n)
+                                 }
+                              }
+                           }
+                        },
+                        nil,
+                        timeout_bar
+                     }
                   }
                }
             }
@@ -258,9 +280,9 @@ function _W.layout(n)
       anim.pause = false
    end)
    anim.target = 100
+
    widget.buttons = {}
    return widget
-   
 end
 
 return _W
