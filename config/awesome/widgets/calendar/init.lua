@@ -42,6 +42,7 @@ local panel = wibox {
    }
 }
 
+
 function panel:show()
    panel.visible = not panel.visible
 

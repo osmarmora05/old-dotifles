@@ -1,9 +1,9 @@
-local gears     = require('gears')
-local wibox     = require('wibox')
+local gears = require('gears')
+local wibox = require('wibox')
 local beautiful = require('beautiful')
-local dpi       = beautiful.xresources.apply_dpi
-local helpers   = require('helpers')
-local todo_panel= require('widgets.todo-panel')
+local dpi = beautiful.xresources.apply_dpi
+local helpers = require('helpers')
+local todo_panel = require('widgets.todo-panel')
 local awful     = require('awful')
 
 
@@ -65,7 +65,7 @@ local mouth_widget = wibox.widget {
 local frown = wibox.widget {
     {
         mouth_widget,
-        direction = 'south',
+        direction = 'south', --
         widget = wibox.container.rotate()
     },
     top = dpi(8),

@@ -345,7 +345,7 @@ awful.keyboard.append_global_keybindings {
       group       = 'miscelaneous',
       on_press    = screenshot.selection
    },
-   
+
    --color picker
    awful.key {
       modifiers   = {mod.super},

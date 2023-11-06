@@ -75,6 +75,7 @@ local function take_screenshot(cmd)
    end)
 end
 
+
 return {
    screen    = function() take_screenshot('maim')    end,
    selection = function() take_screenshot('maim -s') end

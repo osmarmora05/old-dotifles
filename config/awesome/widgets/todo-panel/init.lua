@@ -4,6 +4,7 @@ local dpi       = beautiful.xresources.apply_dpi
 local helpers   = require('helpers')
 local modules   = require('widgets.todo-panel.module')
 
+
 local todo_and_quiklink = wibox.widget {
     {
         modules.todo,
@@ -14,6 +15,8 @@ local todo_and_quiklink = wibox.widget {
     spacing = 0,
     layout = wibox.layout.fixed.horizontal,
 }
+
+
 
 local panel = wibox{
     ontop   = true,

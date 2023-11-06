@@ -1,11 +1,11 @@
 -- by chadcat7
 
-local beautiful  = require('beautiful')
-local wibox      = require('wibox')
-local awful      = require('awful')
-local menubar    = require('menubar')
-local dpi        = beautiful.xresources.apply_dpi
-local helpers    = require('helpers')
+local beautiful = require('beautiful')
+local wibox = require('wibox')
+local awful = require('awful')
+local menubar       = require('menubar')
+local dpi       = beautiful.xresources.apply_dpi
+local helpers   = require('helpers')
 
 
 return function ()

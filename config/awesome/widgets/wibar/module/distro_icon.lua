@@ -23,6 +23,7 @@ return function ()
         },
         bg     = beautiful.bg_light,
         shape  = helpers.rounded_rect(dpi(4)),
+        forced_height = dpi(40),
         widget = wibox.container.background
     }
 

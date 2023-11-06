@@ -14,7 +14,7 @@ local awful = require('awful')
 -- mask overlay
 local overlayed = wibox.widget({
 	{
-		bg = beautiful.bg_normal .. 'ef',
+		bg = beautiful.bg_normal .. 'd7',
 		forced_height = dpi(100),
 		forced_width = dpi(100),
 		widget = wibox.container.background,
