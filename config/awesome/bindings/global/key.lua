@@ -54,6 +54,13 @@ awful.keyboard.append_global_keybindings {
       on_press    = function() awful.spawn(apps.terminal) end
    },
    awful.key {
+      modifiers   = { mod.super,mod.ctrl },
+      key         = 'Return',
+      description = 'open a terminal(floating)',
+      group       = 'launcher',
+      on_press    = function() awful.spawn(apps.terminal, { floating = true }) end
+   },
+   awful.key {
       modifiers   = { mod.super,mod.shift},
       key         = 'e',
       description = 'open file explorer',
