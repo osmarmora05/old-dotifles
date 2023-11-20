@@ -85,7 +85,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     - [maim](https://github.com/naelstrof/maim),
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
-    - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme), [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme)  (icon pack)
+    - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) (icon pack)
     - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
     [Material Icons](https://github.com/google/material-design-icons) and [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
@@ -97,7 +97,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     </p>
 
     > **Important**
-    > The following commands do not include the dependency: [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme), [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
+    > The following commands do not include the dependency: [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
     [Material Icons](https://github.com/google/material-design-icons), [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 
@@ -301,7 +301,7 @@ My configuration files are the result of merging the brilliant [gwileful](https:
 
 <!-- REFERENCES -->
 ## References
-These people's dotfiles (and in some cases they themselves) have massively
+These people's dotfiles (and in some cases they themselves) have massively  
 helped me create this configuration.
 
 [Blyaticon's cropping helper](https://git.gemia.net/paul.s/homedots). 
