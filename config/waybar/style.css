@@ -1,0 +1,239 @@
+/*colors*/
+/* Dracula */
+
+/*
+@define-color colbg       #282a36;
+@define-color colbg2      #44475a;
+@define-color colfg       #f8f8f2;
+@define-color colgrey     #6272a4;
+@define-color colcyan     #8be9fd;
+@define-color colgreen    #50fa7b;
+@define-color colorange   #ffb86c;
+@define-color colmagenta  #ff79c6;
+@define-color colviolet   #bd93f9;
+@define-color colred      #ff5555;
+@define-color colyellow   #f1fa8c;
+*/
+
+/*Onedark*/
+
+/* 
+@define-color colbg #1e2127;
+@define-color colbg2 #2C303A;
+@define-color colfg #bbc2cf;
+@define-color colgrey #5B6268;
+@define-color colcyan #46d9ff;
+@define-color colgreen #98be65;
+@define-color colorange #da8548;
+@define-color colmagenta #c678dd;
+@define-color colviolet #a9a1e1;
+@define-color colred #ff6c6b;
+@define-color colyellow #ecbe7b; 
+*/
+
+/*Dark decay*/
+
+@define-color colbg     #101419; 
+@define-color colbg2    #1c252c;
+@define-color colfg     #b6beca;
+@define-color colgrey   #5B6268;
+@define-color colcyan   #90daff;
+@define-color colgreen  #94f7c5;
+@define-color colorange #da8548;
+@define-color colmagenta #e2a6ff;
+@define-color colviolet #a9a1e1;
+@define-color colred    #fc7b81;
+@define-color colyellow #ffeba6;
+
+
+/*Oxocarbon*/
+
+/*
+@define-color colbg        #161616;
+@define-color colbg2       #262626;
+@define-color colfg        #ffffff;
+@define-color colgrey      #dde1e6;
+@define-color colcyan      #3ddbd9;
+@define-color colgreen     #42be65;
+@define-color colorange    #da8548;
+@define-color colmagenta   #ff7eb6;
+@define-color colviolet    #a9a1e1;
+@define-color colred       #ee5396;
+@define-color colyellow    #ffe97b;
+*/
+
+/*palenight*/
+
+/* 
+@define-color colbg        #292D3E; 
+@define-color colbg2       #242837;
+@define-color colfg        #EEFFFF;
+@define-color colgrey      #676E95;
+@define-color colcyan      #80cbc4;
+@define-color colgreen     #c3e88d;
+@define-color colorange    #f78c6c;
+@define-color colmagenta   #c792ea;
+@define-color colviolet    #bb80b3;
+@define-color colred       #ff5370;
+@define-color colyellow    #ffcb6b; */
+
+
+* {
+  border: 10px;
+  border-radius: 0;
+  font-family: "IBM Plex Mono", "Material Icons", "Helvetica", "Arial",
+    "sans-serif";
+  font-size: 15px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @colbg;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+}
+
+#tags button {
+  background-color: @colbg;
+  padding: 3px;
+  border-radius: 0px;
+  min-width: 20px;
+  color: @colgrey;
+}
+
+#tags button.occupied {
+  background-color: @colbg;
+  color: @colfg;
+}
+
+#tags button.focused {
+  background-color: @colgrey;
+  color: @colfg;
+}
+
+#window {
+  color: @colviolet;
+}
+
+#workspaces button {
+  background-color: @colbg;
+  padding: 6px;
+  border-radius: 0px;
+  min-width: 20px;
+  color: @colfg;
+}
+
+#workspaces button.active {
+  background-color: @colbg2;
+  border-bottom: 2px solid @colviolet;
+  color: @colfg;
+}
+
+#workspaces button.urgent {
+  background-color: @colred;
+  color: @colfg;
+}
+
+#workspaces button.hidden {
+  background-color: @colbg;
+  color: @colfg;
+}
+
+#workspaces button.focused {
+  background-color: @colbg2;
+}
+
+#window {
+  color: @colviolet;
+}
+
+#custom-dwl_layout {
+  color: @colviolet;
+}
+
+#custom-dwl_title {
+  color: @colmagenta;
+}
+
+#custom-dwl_tag {
+  color: @colgrey;
+}
+
+#custom-dwl_tag.selected {
+  border-top: 1px solid @colmagenta;
+}
+
+#custom-dwl_tag.urgent {
+  background-color: @colred;
+}
+
+#custom-dwl_tag.active {
+  color: @colfg;
+}
+
+#window {
+  background: @colbg2;
+  padding: 0 10px;
+  margin: 3px 3px 3px 3px;
+  border-radius: 0px;
+  background-clip: padding-box;
+}
+
+#battery,
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#backlight,
+#custom-power-button,
+#tray {
+  padding: 0 10px;
+  margin: 3px 3px 3px 3px;
+  border-radius: 4px;
+  background-clip: padding-box;
+  padding-left: 6px;
+  color: @colbg;
+}
+
+#battery {
+  background: @colgreen;
+}
+
+#clock {
+  background: @colviolet;
+}
+
+#cpu {
+  background: @colcyan;
+}
+
+#memory {
+  background: @colmagenta;
+}
+
+#network {
+  background: @colorange;
+}
+
+#pulseaudio {
+  background: @colviolet;
+}
+
+#backlight {
+  background: @colmagenta;
+}
+
+#custom-wmname {
+  font-size: 20px;
+  padding-right: 9px;
+  color: @colviolet;
+}
+
+#custom-power-button{
+  background: @colred;
+}
