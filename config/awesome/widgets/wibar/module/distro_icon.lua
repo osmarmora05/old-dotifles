@@ -1,18 +1,20 @@
-
 local awful     = require('awful')
+local gears     = require('gears')
 local wibox     = require('wibox')
 local beautiful = require('beautiful')
-local helpers   = require('helpers')
 local dpi       = beautiful.xresources.apply_dpi
-local controlCenter = require('widgets.controlCenter')
+local control   = require('widgets.control')
+local colors    = require('widgets.wibar.module.colors')
 
-return function ()
+return function()
     local distro_icon = wibox.widget {
         {
             {
                 {
                     image      = beautiful.distro_logo,
-                    clip_shape = helpers.rounded_rect(dpi(4)),
+                    clip_shape = function(c, w, h)
+                        gears.shape.rounded_rect(c, w, h, dpi(4))
+                    end,
                     widget     = wibox.widget.imagebox
                 },
                 margins = dpi(6),
@@ -21,25 +23,27 @@ return function ()
             align  = 'center',
             widget = wibox.container.place
         },
-        bg     = beautiful.bg_light,
-        shape  = helpers.rounded_rect(dpi(4)),
+        bg            = colors.bg_light,
+        shape         = function(c, w, h)
+            gears.shape.rounded_rect(c, w, h, dpi(4))
+        end,
         forced_height = dpi(40),
-        widget = wibox.container.background
+        widget        = wibox.container.background
     }
-
 
     distro_icon:connect_signal('mouse::enter', function()
-        distro_icon.bg = beautiful.mid_dark
-        end)
-        distro_icon:connect_signal('mouse::leave', function()
-        distro_icon.bg = beautiful.bg_light
-        end)
+        distro_icon.bg = colors.mid_dark
+    end)
 
+    distro_icon:connect_signal('mouse::leave', function()
+        distro_icon.bg = colors.bg_light
+    end)
 
-        distro_icon.buttons = {
+    distro_icon.buttons = {
         awful.button({}, 1, function()
-            controlCenter:show()
+            control:show()
         end)
     }
+
     return distro_icon
 end

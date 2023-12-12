@@ -1,18 +1,19 @@
 local awful         = require('awful')
 local hotkeys_popup = require('awful.hotkeys_popup')
 require('awful.hotkeys_popup.keys')
-local menubar       = require('menubar')
+local menubar          = require('menubar')
 
-local apps          = require('config.apps')
-local mod           = require('bindings.mod')
-local widgets       = require('widgets')
-local screenshot    = require('script.screenshot')
-local calendar     = require('widgets.calendar')
-local control_center = require('widgets.controlCenter')
-local todo_panel = require('widgets.todo-panel')
-local gears  = require('gears')
-local gfs    = gears.filesystem
-local config_dir = gfs.get_configuration_dir() 
+local apps             = require('config.apps')
+local mod              = require('bindings.mod')
+local widgets          = require('widgets')
+local screenshot       = require('script.screenshot')
+local calendar         = require('widgets.calendar')
+local control          = require('widgets.control')
+local quiklinks        = require('widgets.quiklinks')
+local capturer = require('widgets.capturer.init')
+local gears            = require('gears')
+local gfs              = gears.filesystem
+local config_dir       = gfs.get_configuration_dir()
 
 menubar.utils.terminal = apps.terminal
 
@@ -54,14 +55,14 @@ awful.keyboard.append_global_keybindings {
       on_press    = function() awful.spawn(apps.terminal) end
    },
    awful.key {
-      modifiers   = { mod.super,mod.ctrl },
+      modifiers   = { mod.super, mod.ctrl },
       key         = 'Return',
       description = 'open a terminal(floating)',
       group       = 'launcher',
       on_press    = function() awful.spawn(apps.terminal, { floating = true }) end
    },
    awful.key {
-      modifiers   = { mod.super,mod.shift},
+      modifiers   = { mod.super, mod.shift },
       key         = 'e',
       description = 'open file explorer',
       group       = 'launcher',
@@ -77,7 +78,7 @@ awful.keyboard.append_global_keybindings {
 
    -- Widgets
    awful.key {
-      modifiers   = { mod.super,mod.shift },
+      modifiers   = { mod.super, mod.shift },
       key         = 'c',
       description = 'Calendar',
       group       = 'launcher',
@@ -89,14 +90,23 @@ awful.keyboard.append_global_keybindings {
       key         = 'c',
       description = 'Show controlCenter',
       group       = 'launcher',
-      on_press    = function() control_center:show() end
+      on_press    = function() control:show() end
    },
+
+   awful.key {
+      modifiers   = { mod.super },
+      key         = 'l',
+      description = 'Show Quiklinks',
+      group       = 'launcher',
+      on_press    = function() quiklinks:show() end
+   },
+
    awful.key {
       modifiers   = { mod.super },
       key         = 't',
-      description = 'Show todo-panel',
+      description = 'Show Tools',
       group       = 'launcher',
-      on_press    = function() todo_panel:show() end
+      on_press    = function() capturer:show() end
    }
 }
 
@@ -355,7 +365,7 @@ awful.keyboard.append_global_keybindings {
 
    --color picker
    awful.key {
-      modifiers   = {mod.super},
+      modifiers   = { mod.super },
       key         = 'o',
       description = 'takes color picker',
       group       = 'miscelaneous',
@@ -363,36 +373,36 @@ awful.keyboard.append_global_keybindings {
    },
 
    -- Volume
-   awful.key{
+   awful.key {
       modifiers = {},
       key = 'XF86AudioRaiseVolume',
       description = 'Increase system audio volume',
       group = 'Media',
-      on_press =  function() awesome.emit_signal("volume::change", 5) end
+      on_press = function() awesome.emit_signal("volume::change", 5) end
    },
 
-   awful.key{
+   awful.key {
       modifiers = {},
       key = 'XF86AudioLowerVolume',
       description = 'Decrease system audio volume',
       group = 'Media',
-      on_press =  function() awesome.emit_signal("volume::change", -5) end
+      on_press = function() awesome.emit_signal("volume::change", -5) end
    },
 
    -- brightness
-   awful.key{
+   awful.key {
       modifiers = {},
       key = 'XF86MonBrightnessUp',
       description = 'Increase screen brightness',
       group = 'Media',
-      on_press =  function() awesome.emit_signal("brightness::change", 5) end
+      on_press = function() awesome.emit_signal("brightness::change", 5) end
    },
-   
-   awful.key{
+
+   awful.key {
       modifiers = {},
       key = 'XF86MonBrightnessDown',
       description = 'Decrease screen brightness',
       group = 'Media',
-      on_press =  function() awesome.emit_signal("brightness::change", -5) end
+      on_press = function() awesome.emit_signal("brightness::change", -5) end
    }
 }

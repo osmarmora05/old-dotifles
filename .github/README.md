@@ -86,8 +86,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
     - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) (icon pack)
-    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
-    [Material Icons](https://github.com/google/material-design-icons) and [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
+    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf) and [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
     - [bluez](https://github.com/bluez/bluez) (bluetooth signals)
     - [upower](https://github.com/freedesktop/upower) (battery signals)
@@ -97,8 +96,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     </p>
 
     > **Important**
-    > The following commands do not include the dependency: [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf),
-    [Material Icons](https://github.com/google/material-design-icons), [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads)
+    > The following commands do not include the dependency: [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf), [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf)
 
 
     <details>
@@ -132,7 +130,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
 1. Clone this repository
 
     ```shell
-    git clone https://github.com/osmarmora05/dotfiles.git
+    git clone --single-branch --branch awesome https://github.com/osmarmora05/dotfiles.git
       ```
 
 2. Install my AwesomeWM configuration files
@@ -177,7 +175,7 @@ Most of this project follows the structure of the [Suconakh](https://github.com/
 | Variable       | Type      | Description                                                                        |
 | -------------- | --------- | ---------------------------------------------------------------------------------- |
 | gaps           | `integer` | Spacing between clients and screen padding size                                    |
-| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon` ,`catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, `adwaita`, `janleigh`, `gruvbox_light`, `solarized_dark`,`solarized_light`,`plata`,`amarena`,`rose`,`ephemeral`,`skyfall` and more to come  |
+| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon` ,`catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, `adwaita`, `janleigh`, `gruvbox_light`, `solarized_dark`,`solarized_light`,`plata`,`amarena`,`rose`,`ephemeral`,`skyfall`,`biscuit` and more to come  |
 | avatar         | `string`  | Path to user profile picture                                                       |
 | wallpaper      | `string`  | Path to user wallpaper                                                             |
 | screenshot_dir | `string`  | Directory to save screenshots to                                                   |
@@ -187,10 +185,10 @@ Most of this project follows the structure of the [Suconakh](https://github.com/
 </p>
 
 > **Warning**
-It is not recommended to move the `colorscheme` variable in the `config/user.lua` file from line **21**. Because it is linked to the `themer` widgets, since its functionality is to edit this line depending on the theme set. If you move it from the current line, you must modify the second argument of the `setTheme` function call in the `widgets/control_center/module/themer.lua` file.
+It is not recommended to move the `colorscheme` variable in the `config/user.lua` file from line **21**. Because it is linked to the `themer` widgets, since its functionality is to edit this line depending on the theme set. If you move it from the current line, you must modify the second argument of the `open_file` function call in the `widgets/control/module/themer.lua` file.
 
 ```lua
-set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,gfs.get_configuration_dir() .."config/username.lua") --Change theme
+M.open_file('   colorscheme = "' .. current:gsub('"', '\\"') .. '",', 21, gfs.get_configuration_dir() .. "config/user.lua") --Change theme
 ```
 
 ~ `config/auto.lua` contains autostart commands to be executed:
@@ -256,9 +254,10 @@ set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,
 | `mod + Esc`            | Go back.                                                   |
 | UI                     | -                                                          |
 | `mod + c`              | Toggle control center visibility.                          |
-| `mod + t`              | Toggle themer-panel visibility.                            |
+| `mod + t`              | Toggle Tools panel visibility.                             |
 | `mod + Shift + c`      | Toggle calendar visibility.                                |
 | `mod + p`              | Toggle menu bar visibility.                                |
+| `mod + l`              | Toggle QuikLinks visibility.                                |
 
 </details>
 

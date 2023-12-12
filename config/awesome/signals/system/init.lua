@@ -1,7 +1,9 @@
 return {
-   battery = require('signals.system.battery'),
-   network = require('signals.system.network'),
-   volume = require('signals.system.volume'),
-   bluetooth = require('signals.system.bluetooth'),
-   brightness = require('signals.system.brightness')
+   battery = require(... .. '.battery'),
+   network = require(... .. '.network'),
+   volume = require(... .. '.volume'),
+   bluetooth = require(... .. '.bluetooth'),
+   brightness = require(... .. '.brightness'),
+   microphone = require(... .. '.microphone'),
+   uptime = require(... .. '.uptime')
 }

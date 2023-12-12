@@ -1,4 +1,5 @@
 return {
-   calendar = require('widgets.calendar.module.calendar'),
-   clock    = require('widgets.calendar.module.clock')
+   colors   = require(... .. '.colors'),
+   calendar = require(... ..'.calendar'),
+   clock    = require(... .. '.clock')
 }

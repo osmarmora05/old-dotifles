@@ -1,4 +1,5 @@
 return {
-    brightness_popups = require('widgets.popups.brightness'),
-    volume_popus = require('widgets.popups.volume')
+    colors = require(... .. '.colors'),
+    brightness_popups = require(... .. '.brightness'),
+    volume_popus = require(... .. '.volume')
 }

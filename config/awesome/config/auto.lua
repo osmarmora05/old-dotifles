@@ -10,5 +10,5 @@ local on_reload = awful.spawn
 -- such as `echo 'biggus' > dickus`.
 local shell     = awful.spawn.with_shell
 
--- on_start('setxkbmap latam') --Keys latam
+--on_start('setxkbmap latam') --Keys latam
 on_start('bluetoothctl power off') -- Disable Bluetooth on AwesomeWM startup

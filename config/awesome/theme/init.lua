@@ -4,7 +4,7 @@ local dpi    = require('beautiful').xresources.apply_dpi
 local gc     = gears.color
 local gfs    = gears.filesystem
 
-local color  = require('theme.colorscheme').colorscheme
+local color  = require('theme.colorscheme')
 local user   = require('config.user')
 local helper = require('helpers')
 
@@ -15,33 +15,15 @@ local _T = {}
 -- Custom Variables
 _T.font_sans = 'IBM Plex Sans '
 _T.font_mono = 'IBM Plex Mono '
-_T.font_icon = 'Material Icons '
-_T.font_bits = 'Fairfax '
 
 -- Custom Colors
-_T.bg_dark      = color.bg_dark
-_T.bg_normal    = color.bg_normal
 _T.bg_light     = color.bg_light
 _T.mid_dark     = color.mid_dark
-_T.mid_normal   = color.mid_normal
-_T.mid_light    = color.mid_light
-_T.fg_dark      = color.fg_dark
+_T.bg_normal    = color.bg_normal
 _T.fg_normal    = color.fg_normal
-_T.fg_light     = color.fg_light
-
 _T.red          = color.red
 _T.red_dark     = color.red_dark
-_T.green        = color.green
-_T.green_dark   = color.green_dark
-_T.yellow       = color.yellow
-_T.yellow_dark  = color.yellow_dark
 _T.blue         = color.blue
-_T.blue_dark    = color.blue_dark
-_T.magenta      = color.magenta
-_T.magenta_dark = color.magenta_dark
-_T.cyan         = color.cyan
-_T.cyan_dark    = color.cyan_dark
-
 _T.transparent  = '#00000000'
 
 -- Basic AWM variables
@@ -66,7 +48,7 @@ end
 
 
 -- Logos/icons/avatar
-_T.distro_logo = gc.recolor_image(asset_path .. 'flowers.png', _T.blue)
+_T.distro_logo = gc.recolor_image(asset_path .. '/distro/flowers.png', _T.blue)
 _T.shutdown_icon = gc.recolor_image(asset_path .. '/power/shutdown.svg',_T.red)
 _T.avatar = user.avatar ~= nil and user.avatar
 or asset_path .. "user.png"

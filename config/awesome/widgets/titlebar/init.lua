@@ -1,3 +1,4 @@
 return {
-    main = require('widgets.titlebar.main')
+    colors = require(... .. '.colors'),
+    main = require(... .. '.main')
 }

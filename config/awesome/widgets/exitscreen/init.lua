@@ -1,16 +1,23 @@
--- by chadcat7
+local awful      = require('awful')
+local wibox      = require('wibox')
+local beautiful  = require('beautiful')
+local dpi        = beautiful.xresources.apply_dpi
+local colors     = require('widgets.exitscreen.module.colors')
+local modules    = require('widgets.exitscreen.module')
+local gears      = require('gears')
+local gfs        = gears.filesystem
+local asset_path = gfs.get_configuration_dir() .. 'theme/assets/exitscreen/'
 
-local awful = require('awful')
-local wibox = require('wibox')
-local beautiful = require('beautiful')
-local dpi = beautiful.xresources.apply_dpi
-local helpers = require('helpers')
+local function recolorImage(image, color)
+  return gears.color.recolor_image(image, color)
+end
 
-local powerofficon = '󰐥 '
-local rebooticon = '󰜉 '
-local exiticon = '󰈆 '
-local suspendicon = '󰤄 '
-
+local icon = {
+  powerofficon = recolorImage(asset_path .. "poweroff.svg", colors.red),
+  rebooticon = recolorImage(asset_path .. "reboot.svg", colors.blue),
+  exiticon = recolorImage(asset_path .. "exit.svg", colors.yellow),
+  suspendicon = recolorImage(asset_path .. "suspend.svg", colors.cyan)
+}
 
 local poweroffcommand = function()
   awful.spawn.with_shell('systemctl poweroff')
@@ -22,7 +29,7 @@ local rebootcommand = function()
   awesome.emit_signal('hide::exit')
 end
 
-local suspendcommnad = function ()
+local suspendcommnad = function()
   awesome.emit_signal('hide::exit')
   awful.spawn.with_shell("systemctl suspend")
 end
@@ -31,41 +38,31 @@ local exitcommand = function()
   awesome.quit()
 end
 
-local close = wibox.widget {
-  {
-    align = 'center',
-    font = beautiful.font_icon .. ' 24',
-    markup = helpers.colorize_text('󰅖', beautiful.red),
-    widget = wibox.widget.textbox,
-  },
-  widget = wibox.container.place,
-  halign = 'left',
-  buttons = {
-    awful.button({}, 1, function()
-      awesome.emit_signal('hide::exit')
-    end)
-  },
-}
-
 local createButton = function(icon, cmd, color)
   local button = wibox.widget {
     {
+
       {
-        id = 'text_role',
-        align = 'center',
-        font = beautiful.font_icon .. ' 45',
-        markup = helpers.colorize_text(icon, color),
-        widget = wibox.widget.textbox
+        {
+          id = "image",
+          image = recolorImage(icon, color),
+          widget = wibox.widget.imagebox,
+          resize = false
+        },
+        id = "icon_layout",
+        halign = 'center',
+        valign = "center",
+        widget = wibox.container.place
       },
       margins = {
-        left = dpi(100), right = dpi(70),
+        left = dpi(80), right = dpi(80),
         top = dpi(70), bottom = dpi(70)
-     },
+      },
       widget = wibox.container.margin
     },
     border_color = color,
     border_width = dpi(5),
-    bg = beautiful.bg_normal,
+    bg = colors.bg_normal,
     buttons = {
       awful.button({}, 1, function()
         cmd()
@@ -75,22 +72,19 @@ local createButton = function(icon, cmd, color)
   }
   button:connect_signal('mouse::enter', function(self)
     self.bg = color
-    self:get_children_by_id('text_role')[1].markup = helpers.colorize_text(icon, beautiful.bg_normal)
+    self:get_children_by_id('image')[1].image = recolorImage(icon, colors.bg_normal)
   end)
   button:connect_signal('mouse::leave', function(self)
-    self.bg = beautiful.bg_normal
-    self:get_children_by_id('text_role')[1].markup = helpers.colorize_text(icon, color)
+    self.bg = colors.bg_normal
+    self:get_children_by_id('image')[1].image = recolorImage(icon, color)
   end)
   return button
 end
 
-
-
-local poweroffbutton = createButton(powerofficon, poweroffcommand, beautiful.red)
-local rebootbutton = createButton(rebooticon, rebootcommand, beautiful.blue)
-local exitbutton = createButton(exiticon, exitcommand, beautiful.yellow)
-local suspendbutton = createButton(suspendicon,suspendcommnad,beautiful.cyan)
-
+local poweroffbutton = createButton(icon.powerofficon, poweroffcommand, colors.red)
+local rebootbutton = createButton(icon.rebooticon, rebootcommand, colors.blue)
+local exitbutton = createButton(icon.exiticon, exitcommand, colors.yellow)
+local suspendbutton = createButton(icon.suspendicon, suspendcommnad, colors.cyan)
 
 local box = wibox.widget {
   {
@@ -116,7 +110,7 @@ local exit_screen_grabber = awful.keygrabber({
       exitcommand()
     elseif key == 'p' then
       poweroffcommand()
-    elseif key=='s' then
+    elseif key == 's' then
       suspendcommnad()
     elseif key == 'r' then
       rebootcommand()
@@ -126,49 +120,60 @@ local exit_screen_grabber = awful.keygrabber({
   end,
 })
 
+local footer = wibox.widget {
+  {
+    modules.battery,
+    modules.time,
+    spacing = 10,
+    layout = wibox.layout.fixed.horizontal
+  },
+  widget = wibox.container.place,
+  halign = 'center'
+}
 
-return function (s)
-    local exit = wibox({
-        type = 'dock',
-        screen = s,
-        height = s.geometry.height,
-        width = s.geometry.width,
-        bg = beautiful.bg_normal .. '44',
-        ontop = true,
-        visible = false,
-    })
-    
-    exit:setup {
-        {
-            close,
-            box,
-            nil,
-            expand = 'none',
-            layout = wibox.layout.align.vertical,
-        },
-        margins = dpi(15),
-        widget = wibox.container.margin,
-    }
+return function(s)
+  local exit = wibox({
+    type = 'dock',
+    screen = s,
+    height = s.geometry.height,
+    width = s.geometry.width,
+    bg = colors.bg_normal .. '44',
+    ontop = true,
+    visible = false,
+  })
 
-    awesome.connect_signal('toggle::exit', function()
-        if exit.visible then
-            exit_screen_grabber:stop()
-            exit.visible = false
-        else
-            exit.visible = true
-            exit_screen_grabber:start()
-        end
-    end)
+  exit:setup {
+    {
+      modules.topbar,
+      box,
+      footer,
+      nil,
+      expand = 'none',
+      layout = wibox.layout.align.vertical,
+    },
+    margins = dpi(15),
+    widget = wibox.container.margin,
+  }
 
-    awesome.connect_signal('show::exit', function()
-        exit_screen_grabber:start()
-        exit.visible = true
-    end)
+  awesome.connect_signal('toggle::exit', function()
+    if exit.visible then
+      exit_screen_grabber:stop()
+      exit.visible = false
+    else
+      exit.visible = true
+      exit_screen_grabber:start()
+    end
+  end)
 
-    awesome.connect_signal('hide::exit', function()
-        exit_screen_grabber:stop()
-        exit.visible = false
-    end)
+  awesome.connect_signal('show::exit', function()
+    exit_screen_grabber:start()
+    exit.visible = true
+  end)
 
-    return exit
+  awesome.connect_signal('hide::exit', function()
+    exit_screen_grabber:stop()
+    exit.visible = false
+  end)
+
+  return exit
 end

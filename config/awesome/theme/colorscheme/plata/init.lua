@@ -24,7 +24,7 @@ _C.yellow_dark  = '#c87743'
 _C.blue         = '#7284d2'
 _C.blue_dark    = '#5b6ec3'
 _C.magenta      = '#b57dcc'
-_C.magenta_d    = '#a065b8'
+_C.magenta_dark  = '#a065b8'
 _C.cyan         = '#65c19f'
 _C.cyan_dark    = '#4a9e7f'
 

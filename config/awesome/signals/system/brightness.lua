@@ -1,14 +1,14 @@
-
-local awful     = require('awful')
-local gears     = require('gears')
+local awful             = require('awful')
+local gears             = require('gears')
 
 -- Brightness Fetching and Signal Emitting
 ------------------------------------------
 -- Brightness info script
-local brightness_script = "bash -c 'echo $(($(cat /sys/class/backlight/*/brightness) * 100 / $(cat /sys/class/backlight/*/max_brightness)))'"
+local brightness_script =
+"bash -c 'echo $(($(cat /sys/class/backlight/*/brightness) * 100 / $(cat /sys/class/backlight/*/max_brightness)))'"
 
 -- Emit a brightness level signal
-local level_old = -1
+local level_old         = -1
 local function emit_brightness()
     awful.spawn.easy_async_with_shell(
         brightness_script, function(stdout)
@@ -31,10 +31,10 @@ end)
 -- Refreshing
 -------------
 gears.timer {
-    timeout     = 1,
-    call_now    = true,
-    autostart   = true,
-    callback    = function()
+    timeout   = 1,
+    call_now  = true,
+    autostart = true,
+    callback  = function()
         emit_brightness()
     end
 }

@@ -5,6 +5,4 @@ if user.colorscheme ~= nil then
    colorscheme = require('theme.colorscheme.' .. user.colorscheme)
 end
 
-return {
-   colorscheme = colorscheme
-}
+return colorscheme

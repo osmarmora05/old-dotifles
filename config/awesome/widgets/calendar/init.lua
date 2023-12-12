@@ -1,21 +1,20 @@
 local beautiful = require('beautiful')
 local wibox     = require('wibox')
-
 local dpi       = beautiful.xresources.apply_dpi
+local gears     = require('gears')
+local module    = require(... .. '.module')
 
-local helpers   = require('helpers')
-local widgets   = require('widgets.calendar.module')
-
-
-local panel = wibox {
+local panel     = wibox {
    ontop   = true,
    visible = false,
    width   = dpi(400),
    height  = dpi(520),
-   y       = dpi(5),
+   y       = dpi(550),
    x       = dpi(1510),
-   bg      = beautiful.bg_normal,
-   shape   = helpers.rounded_rect(dpi(4)),
+   bg      = module.colors.bg_normal,
+   shape   = function(c, w, h)
+      gears.shape.rounded_rect(c, w, h, dpi(15))
+   end,
    widget  = {
       layout = wibox.layout.fixed.vertical,
       {
@@ -34,21 +33,16 @@ local panel = wibox {
             {
                layout = wibox.layout.fixed.vertical,
                spacing = dpi(35),
-               widgets.clock(),
-               widgets.calendar
+               module.clock(),
+               module.calendar
             },
          }
       }
    }
 }
 
-
 function panel:show()
    panel.visible = not panel.visible
-
-   if panel.visible then
-      widgets.calendar.reset_calendar()
-   end
 end
 
 return panel

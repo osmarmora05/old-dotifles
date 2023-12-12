@@ -3,10 +3,10 @@
 -- load luarocks if installed
 pcall(require, 'luarocks.loader')
 
+
 -- load theme
-local beautiful = require('beautiful')
-local gfs       = require('gears.filesystem')
-beautiful.init(gfs.get_configuration_dir() .. 'theme/init.lua')
+require('beautiful').init(require('theme'))
+
 
 -- load key and mouse bindings
 require('bindings')
@@ -19,7 +19,6 @@ require('signals')
 
 -- load autoexecs
 require('config.auto')
-
 
 -- 🗑 Garbage Collector Settings
 collectgarbage("setpause", 110)

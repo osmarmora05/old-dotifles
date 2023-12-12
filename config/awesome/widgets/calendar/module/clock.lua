@@ -1,5 +1,6 @@
 local beautiful = require('beautiful')
 local wibox     = require('wibox')
+local colors    = require('widgets.calendar.module.colors')
 
 local dpi       = beautiful.xresources.apply_dpi
 
@@ -26,19 +27,19 @@ return function()
                   layout = wibox.layout.fixed.vertical,
                   {
                      widget = wibox.container.background,
-                     bg     = beautiful.red_dark,
+                     bg     = colors.red_dark,
                      forced_height = dpi(16),
                      forced_width  = dpi(3)
                   },
                   {
                      widget = wibox.container.background,
-                     bg     = beautiful.yellow_dark,
+                     bg     = colors.yellow_dark,
                      forced_height = dpi(16),
                      forced_width = dpi(3)
                   },
                   {
                      widget = wibox.container.background,
-                     bg     = beautiful.green_dark,
+                     bg     = colors.green_dark,
                      forced_height = dpi(16),
                      forced_width = dpi(3)
                   }
@@ -54,7 +55,7 @@ return function()
       },
       {
          widget = wibox.container.background,
-         fg     = beautiful.fg_dark,
+         fg     = colors.fg_dark,
          {
             widget = wibox.widget.textclock,
             format = '%A %e of %B, %Y',

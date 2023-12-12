@@ -1,21 +1,18 @@
--- wii bar meta
-
 local awful     = require('awful')
 local wibox     = require('wibox')
 local beautiful = require('beautiful')
 local dpi       = beautiful.xresources.apply_dpi
 
-local modules   = require('widgets.wibar.module')
+local modules   = require(... .. '.module')
 
-
-return function (s)
+return function(s)
    return awful.wibar {
       screen = s,
       position = 'left',
       width = dpi(50),
       widget = {
          widget = wibox.container.background,
-         bg = beautiful.bg_normal,
+         bg = modules.colors.bg_normal,
          {
             widget = wibox.container.margin,
             margins = {
@@ -32,7 +29,13 @@ return function (s)
                   modules.distro_icon(),
                   modules.taglist(s),
                },
-               modules.tasklist(s),
+               {
+                  widget = wibox.container.margin,
+                  margins = {
+                     top = dpi(5)
+                  },
+                  modules.tasklist(s),
+               },
                {
                   layout = wibox.layout.fixed.vertical,
                   spacing = dpi(10),

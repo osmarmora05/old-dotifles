@@ -9,6 +9,8 @@ local dpi       = beautiful.xresources.apply_dpi
 local helpers   = require('helpers')
 local rubato    = require('modules.rubato')
 
+local colors = require('widgets.notification.colors')
+
 local def_icon =
    gears.color.recolor_image(gears.filesystem.get_configuration_dir() .. 'theme/assets/awesome.svg', beautiful.fg_normal)
 
@@ -76,7 +78,7 @@ function _W.timeout()
       min_value        = 0,
       max_value        = 100,
       value            = 0,
-      background_color = beautiful.bg_light,
+      background_color = colors.bg_light,
       shape            = function(c, w, h)
          gears.shape.rounded_rect(c, w, h, dpi(6))
       end,
@@ -87,7 +89,7 @@ function _W.timeout()
          type  = 'linear',
          from  = { 0, 0   },
          to    = { 0, 100 },
-         stops = { { 0, beautiful.green }, { 1, beautiful.green .. '8c' } }
+         stops = { { 0, colors.green }, { 1, colors.green .. '8c' } }
       },
       forced_height    = dpi(6)
    }
@@ -108,7 +110,7 @@ function _W.actions(n)
          style = {
             underline_normal   = false,
             underline_selected = false,
-            bg_normal          = beautiful.mid_dark,
+            bg_normal          = colors.mid_dark,
             shape_normal       = function(c, w, h)
                gears.shape.rounded_rect(c, w, h, dpi(6))
             end,
@@ -116,7 +118,7 @@ function _W.actions(n)
          },
          widget_template = {
             widget = wibox.container.background,
-            bg     = beautiful.mid_dark,
+            bg     = colors.mid_dark,
             id     = 'background_role',
             {
                widget  = wibox.container.margin,
@@ -139,7 +141,7 @@ function _W.close(n)
       {
          widget = wibox.container.background,
          shape  = gears.shape.circle,
-         bg     = beautiful.red .. '80',
+         bg     = colors.red .. '80',
          id     = 'bg_role',
          forced_width = dpi(13)
       },
@@ -149,10 +151,10 @@ function _W.close(n)
       end
    }
    widget:connect_signal('mouse::enter', function()
-      widget.bg = beautiful.red
+      widget.bg = colors.red
    end)
    widget:connect_signal('mouse::leave', function()
-      widget.bg = beautiful.red .. '80'
+      widget.bg = colors.red .. '80'
    end)
 
    return widget
@@ -170,7 +172,7 @@ function _W.layout(n)
       notification = n,
       cursor       = 'hand2',
       border_width = 0,
-      bg           = beautiful.transparent,
+      bg           = colors.transparent,
       shape        = function(c, w, h)
          gears.shape.rounded_rect(c, w, h, dpi(6))
       end,
@@ -184,7 +186,7 @@ function _W.layout(n)
             width    = dpi(256),
             {
                widget = wibox.container.background,
-               bg     = beautiful.bg_normal,
+               bg     = colors.bg_normal,
                shape  = function(c, w, h)
                   gears.shape.rounded_rect(c, w, h, dpi(8))
                end,
@@ -196,7 +198,7 @@ function _W.layout(n)
                      height   = dpi(30),
                      {
                         widget = wibox.container.background,
-                        bg     = beautiful.bg_normal,
+                        bg     = colors.bg_normal,
                         {
                            widget = wibox.container.margin,
                            margins = { left = dpi(12) },
@@ -221,7 +223,7 @@ function _W.layout(n)
                         type = 'linear',
                         from = { 0, 0 },
                         to   = { 0, 85 },
-                        stops = { { 0, beautiful.bg_light .. '8c' }, { 1, beautiful.bg_normal } }
+                        stops = { { 0, colors.bg_light .. '8c' }, { 1, colors.bg_normal } }
                      },
                      {
                         layout = wibox.layout.align.vertical,

@@ -5,7 +5,7 @@ local gears = require('gears')
 -----------------------------------------
 local status_old = -1
 -- Emit a bluetooth status signal
-local function emit_bluetooth_status() 
+local function emit_bluetooth_status()
     awful.spawn.easy_async_with_shell(
         "bash -c 'bluetoothctl show | grep -i powered:'", function(stdout)
             local status    = stdout:match("yes") -- boolean
@@ -28,10 +28,10 @@ end)
 -- Refreshing
 -------------
 gears.timer {
-    timeout     = 5,
-    call_now    = true,
-    autostart   = true,
-    callback    = function()
+    timeout   = 5,
+    call_now  = true,
+    autostart = true,
+    callback  = function()
         emit_bluetooth_status()
     end
 }
