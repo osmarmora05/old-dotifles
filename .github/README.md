@@ -86,7 +86,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     [slop](https://github.com/naelstrof/slop),
     [xclip](https://github.com/astrand/xclip) (screenshots)
     - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) (icon pack)
-    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf) and [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
+    - [IBM Plex Sans](https://github.com/IBM/plex/tree/master/IBM-Plex-Sans/fonts/complete/ttf) and [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf) (fonts) or (you can find the required fonts inside the `misc/fonts` folder of this repository)
     - [brightnessctl](https://github.com/Hummer12007/brightnessctl) (brightness signals)
     - [bluez](https://github.com/bluez/bluez) (bluetooth signals)
     - [upower](https://github.com/freedesktop/upower) (battery signals)
@@ -190,6 +190,18 @@ It is not recommended to move the `colorscheme` variable in the `config/user.lua
 ```lua
 M.open_file('   colorscheme = "' .. current:gsub('"', '\\"') .. '",', 21, gfs.get_configuration_dir() .. "config/user.lua") --Change theme
 ```
+---
+
+~ `config/apps.lua` Here the default programs are defined
+
+| Variable       | Type      |
+| -------------- | --------- |
+| terminal       | `string`  |
+| editor         | `string`  |
+| browser        | `string`  |
+| file_explorer  | `string`  |
+
+---
 
 ~ `config/auto.lua` contains autostart commands to be executed:
 
