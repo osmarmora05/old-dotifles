@@ -95,7 +95,7 @@ awful.keyboard.append_global_keybindings {
 
    awful.key {
       modifiers   = { mod.super },
-      key         = 'l',
+      key         = 'v',
       description = 'Show Quiklinks',
       group       = 'launcher',
       on_press    = function() quiklinks:show() end
