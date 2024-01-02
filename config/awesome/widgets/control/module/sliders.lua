@@ -81,7 +81,6 @@ awesome.connect_signal('signal::volume', function(volume, muted)
 
   if not muted then
     volumeSlider:get_children_by_id('icon_role')[1].image = icon_status.volume_on
-    -- volumeSlider.icon =
   else
     volumeSlider:get_children_by_id('icon_role')[1].image = icon_status.volume_off
   end
