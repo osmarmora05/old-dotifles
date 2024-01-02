@@ -175,7 +175,7 @@ Most of this project follows the structure of the [Suconakh](https://github.com/
 | Variable       | Type      | Description                                                                        |
 | -------------- | --------- | ---------------------------------------------------------------------------------- |
 | gaps           | `integer` | Spacing between clients and screen padding size                                    |
-| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon` ,`catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, `adwaita`, `janleigh`, `gruvbox_light`, `solarized_dark`,`solarized_light`,`plata`,`amarena`,`rose`,`ephemeral`,`skyfall`,`biscuit` and more to come  |
+| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon` ,`catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, `adwaita`, `janleigh`, `gruvbox_light`, `solarized_dark`,`solarized_light`,`plata`,`amarena`,`rose`,`ephemeral`,`skyfall`,`biscuit`,`clean`, `sexy`  and more to come  |
 | avatar         | `string`  | Path to user profile picture                                                       |
 | wallpaper      | `string`  | Path to user wallpaper                                                             |
 | screenshot_dir | `string`  | Directory to save screenshots to                                                   |
