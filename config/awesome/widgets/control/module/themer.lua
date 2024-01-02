@@ -32,7 +32,9 @@ local themes     = {
   'ephemeral',
   'amarena',
   'skyfall',
-  'biscuit'
+  'biscuit',
+  'sexy',
+  'clean'
 }
 
 local index      = helpers.indexOf(themes, scheme)
@@ -147,7 +149,7 @@ function M.open_file(text, line, path)
 end
 
 function M.set_theme(current)
-  M.open_file('   colorscheme = "' .. current:gsub('"', '\\"') .. '",', 21, gfs.get_configuration_dir() .. "config/user.lua")--Change theme
+  M.open_file('   colorscheme = "' .. current:gsub('"', '\\"') .. '",', 21, gfs.get_configuration_dir() .. "config/user.lua") --Change theme
   -- M.open_file("include " .. current .. ".ini", 3, os.getenv("HOME") .. "/.config/kitty/kitty.conf")                          --Change terminal color (kitty)
   -- M.open_file('@import "'..current:gsub('"', '\\"') .. '.rasi"',1,os.getenv("HOME") .. "/.config/rofi/appmnu.rasi") --Change rofi color
   awesome.restart()

@@ -7,7 +7,7 @@ return {
    -- Colorscheme, supports:
    ---  dark:
    ---    'everblush', 'everforest', 'tokyonight', 'fullerene', 'oxocarbon' ,'catppuccin','mar','nord','gruvbox_dark','dracula', 'rose','solarized_dark','ephemeral','skyfall','wave','amarena'
-   --      'default', 'gruvbox_dark', 'adwaita', 'janleigh'
+   --      'default', 'gruvbox_dark', 'adwaita', 'janleigh', 'clean', 'sexy'
    ---  light:
    ---    'gruvbox_light', 'solarized_light','plata'
 
@@ -18,7 +18,7 @@ return {
    -- FILE 'awesome/widgets/control_center/module/themer.lua',
    -- set_theme(' colourscheme = "' .. currTheme:gsub('"', '\\"') .. '",',line number,gfs.get_configuration_dir() ..
    -- "config/username.lua")
-   colorscheme = "biscuit",
+   colorscheme = "clean",
    
    -- Files
    -- You can comment the variable 'avatar' 'wallpaper', 
