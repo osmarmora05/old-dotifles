@@ -20,6 +20,6 @@ _M.layouts = {
 
 -- Tags respecting _M.layouts, another FLOATING tag will
 -- be appended to the end of the list.
-_M.tags = { '1', '2', '3', '4', '5','7','8','9' }
+_M.tags = { '1', '2', '3', '4', '5' }
 
 return _M

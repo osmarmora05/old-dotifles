@@ -14,7 +14,7 @@ return function()
                     image      = beautiful.distro_logo,
                     widget     = wibox.widget.imagebox
                 },
-                margins = dpi(8),
+                margins = dpi(9),
                 widget  = wibox.container.margin
             },
             align  = 'center',
@@ -24,7 +24,7 @@ return function()
         shape         = function(c, w, h)
             gears.shape.rounded_rect(c, w, h, dpi(4))
         end,
-        forced_height = dpi(40),
+        forced_height = dpi(50),
         widget        = wibox.container.background
     }
 

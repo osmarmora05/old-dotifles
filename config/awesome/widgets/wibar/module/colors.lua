@@ -7,6 +7,7 @@ colors = {
    bg_normal    = colorscheme.bg_normal,
    bg_light     = colorscheme.bg_light,
    mid_dark     = colorscheme.mid_dark,
+   mid_light    = colorscheme.mid_light,
    fg_normal    = colorscheme.fg_normal,
    fg_light     = colorscheme.fg_light,
    red          = colorscheme.red,
