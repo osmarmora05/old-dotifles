@@ -76,10 +76,10 @@
           "max-length": 50
      },
      "pulseaudio": {
-          "format": "{volume}% {icon}",
-          "format-bluetooth": "{volume}% {icon} {format_source}",
-          "format-bluetooth-muted": " {icon} {format_source}",
-          "format-muted": " {format_source}",
+          "format": " {icon} {volume}% ",
+          "format-bluetooth": " {icon} {format_source} {volume}% ",
+          "format-bluetooth-muted": "  {icon} {format_source}" ,
+          "format-muted": "  {format_source} ",
           "format-icons": {
                "headphone": " ",
                "hands-free": " ",
@@ -96,7 +96,7 @@
      },
      "backlight": {
           "device": "amdgpu_bl2",
-          "format": "{percent}% {icon}",
+          "format": " {icon} {percent}% ",
           "format-icons": [
                "󰃞",
                "󰃟",
