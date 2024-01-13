@@ -21,10 +21,11 @@
 
 <!-- RICES -->
 
-# [AwesomeWM](https://github.com/osmarmora05/dotfiles/tree/awesome)
+| <center><b>AwesomeWM</b></center>                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------ |
+| <a href="https://github.com/osmarmora05/dotfiles/tree/awesome"><img src="./awesome.jpg"  alt="AwesomeWM"><a>       |
 
-<img src ="./awesome.jpg" alt="showcase awesome image">
 
-# [Sway](https://github.com/osmarmora05/dotfiles/tree/sway)
-
-<img src ="./sway.jpg" alt="showcase awesome image 1">
+| <center><b>Sway</b></center>                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------ |
+| <a href="https://github.com/osmarmora05/dotfiles/tree/sway"><img src="./sway.jpg"  alt="Sway"><a>                  |
