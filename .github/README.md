@@ -1,8 +1,3 @@
-<!-- CREDITS FOR AWESOME PEOPLE -->
-
-> **Important**
->  My configuration files have been created based on the [gwileful](https://github.com/Gwynsav/gwileful/) and [crystal](https://github.com/chadcat7/crystal) projects. So I ask people to give credit to these amazing people.
-
 <!-- PROFILE PICTURE -->
 <p align="center">
   <img width="25%" src="https://github.com/osmarmora05.png" style="border-radius: 12px;"/>
@@ -29,11 +24,6 @@
 <img src="./screenshots/3.jpg" alt="showcase4">
 <img src="./screenshots/4.jpg" alt="showcase3">
 </div>
-
-<!-- WARNING BROKEN CODE -->
-> **Warning**
-It is not uncommon for me to commit broken code. Also I don't guarantee this setup to be stable
-or the slightest bit safe for use. You have been warned.
 
 <!-- INFORMATION -->
 ## Hello! Thanks for coming! ❤️ 
@@ -75,9 +65,8 @@ These are my configuration files for **AwesomeWM** which includes a control cent
 
     Once we have completed the prerequisites, we proceed to follow the Awesome-git build instructions found [here](https://github.com/awesomeWM/awesome/#building-and-installation).
 
-2. Installation of dependencies
+2. Installation of dependencies:
    
-    **Mandatory**
     - [Awesome-git](https://github.com/awesomeWM/awesome) (If you have reached this point you should already have it installed (๑ᵔ⤙ᵔ๑))
     - [Network Manager](https://github.com/NetworkManager/NetworkManager) (network signals)
     - [Pipewire](https://github.com/PipeWire/pipewire) and
@@ -130,7 +119,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
 1. Clone this repository
 
     ```shell
-    git clone --single-branch --branch awesome https://github.com/osmarmora05/dotfiles.git
+    git clone --single-branch --branch awesome https://github.com/osmarmora05/dotfiles.git --recursive
       ```
 
 2. Install my AwesomeWM configuration files
@@ -154,8 +143,6 @@ These are my configuration files for **AwesomeWM** which includes a control cent
     
 </details>
 
-> **Note**
-If you find any spelling or installation errors, let me know.
 
 <!-- CONFIGURATION -->
 ## Configuration
@@ -175,7 +162,7 @@ Most of this project follows the structure of the [Suconakh](https://github.com/
 | Variable       | Type      | Description                                                                        |
 | -------------- | --------- | ---------------------------------------------------------------------------------- |
 | gaps           | `integer` | Spacing between clients and screen padding size                                    |
-| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon` ,`catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, `adwaita`, `janleigh`, `gruvbox_light`, `solarized_dark`,`solarized_light`,`plata`,`amarena`,`rose`,`ephemeral`,`skyfall`,`biscuit`,`clean`, `sexy`  and more to come  |
+| colorscheme    | `string`  | `everblush`, `everforest`, `tokyonight`, `fullerene`, `oxocarbon`, <br> `catppuccin`,`mar`,`nord`,`gruvbox_dark`,`dracula`,`default`, <br> `adwaita`, `janleigh`, `gruvbox_light`,`solarized_dark`,`solarized_light`, <br>`plata`,`amarena`,`rose`,`ephemeral`,`skyfall`,`biscuit`,`clean`, `sexy` <br> and more to come  |
 | avatar         | `string`  | Path to user profile picture                                                       |
 | wallpaper      | `string`  | Path to user wallpaper                                                             |
 | screenshot_dir | `string`  | Directory to save screenshots to                                                   |
@@ -284,8 +271,8 @@ AwesomeWM Modules:
   <b> </b>
 </p>
 
-- [json.lua](https://github.com/rxi/json.lua)
-  - A lightweight JSON library for Lua
+- [animation](https://github.com/Kasper24/KwesomeDE)
+  - Animations made by [kasper's](https://github.com/Kasper24/)
 - [color](https://github.com/andOrlando/color)
   - Clean and efficient api for color conversion in lua
 - [UPower](https://github.com/Aire-One/awesome-battery_widget)
@@ -298,23 +285,14 @@ AwesomeWM Modules:
 <!-- CREDITS -->
 ## Credits
 
-My configuration files are the result of merging the brilliant [gwileful](https://github.com/Gwynsav/gwileful) and [crystal](https://github.com/chadcat7/crystal) projects. So without them this would not have been possible.  ૮꒰ ˶• ༝ •˶꒱ა ♡
+- [gw's](https://github.com/Gwynsav/gwileful), [chadcat7's](https://github.com/chadcat7/crystal): Base code and reference of my rice
 
-- [gw's creator gwileful](https://github.com/Gwynsav/)
-- [chadcat7's creator crystal](https://github.com/chadcat7/)
+- [Alpha's](https://github.com/AlphaTechnolog/nixdots): Control center and signals slider
 
-<!-- REFERENCES -->
-## References
-These people's dotfiles (and in some cases they themselves) have massively  
-helped me create this configuration.
+- [rxyhn's](https://github.com/rxyhn/yoru): Battery signals and widget
 
-[Blyaticon's cropping helper](https://git.gemia.net/paul.s/homedots). 
+- [elenapan's dotfiles](https://github.com/elenapan/dotfiles): Ideas and color scheme
 
-[Alpha.'s NixOS Awesome setup](https://github.com/AlphaTechnolog/nixdots). 
+- [tsukki9696's](https://github.com/tsukki9696/tsukiyomi): Buttons for control center
 
-[Stardust-kyun's dotfiles](https://github.com/Stardust-kyun/dotfiles). 
-
-[Aproxia's dotfiles](https://github.com/Aproxia-dev/.dotfiles). 
-
-Also got a few ideas from [elenapan's dotfiles](https://github.com/elenapan/dotfiles) 
-and [rxyhn's Yoru](https://github.com/rxyhn/yoru).
+- [Blyaticon's](https://git.gemia.net/paul.s/homedots): Helpers
