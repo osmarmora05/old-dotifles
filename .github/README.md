@@ -25,10 +25,6 @@
 <img src="./screenshots/4.jpg" alt="showcase3">
 </div>
 
-<!-- WARNING BROKEN CODE -->
-> **Warning**
-It is not uncommon for me to commit broken code. Also I don't guarantee this setup to be stable
-or the slightest bit safe for use. You have been warned.
 
 <!-- WELCOME -->
 ## Hello! Thanks for coming! ❤️ 
@@ -61,8 +57,6 @@ These are my configuration files for **Sway** which includes a bar with computer
 - [notify-send](https://github.com/GNOME/libnotify) (notifications)
 - [IBM-Plex-Mono](https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/ttf), [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) (fonts) (you can find the required fonts inside the `misc/fonts` folder of this repository)
 
-> **Important**
-> I suggest you compile **hyprpicker**. Although I know that the binary is in my configurations, I strongly recommend that you compile it to avoid possible problems.
 
 <details>
 <summary><b> In fedora (Fedora-based distributions)</b></summary>
@@ -163,6 +157,8 @@ To learn more keybinds [here](https://wiki.garudalinux.org/en/sway-cheatsheet)
 <!-- CREDITS -->
 ## Credits
 
-[yakei](ttps://gitlab.com/yakei/Desktop) Reference to get started with sway and its waybar configuration is very easy to understand. Very good
+[yakei](https://gitlab.com/yakei/Desktop): Reference to get started with sway and its waybar configuration is very easy to understand. Very good
 
-[Stephan Raabe](https://gitlab.com/stephan-raabe/dotfiles/-/tree/main?ref_type=heads) Configuration for swaylock, wlogout. And also, their YouTube channel is very good and explains things very clearly.
+[Stephan Raabe](https://gitlab.com/stephan-raabe/dotfiles/-/tree/main?ref_type=heads): Configuration for swaylock, wlogout. And also, their YouTube channel is very good and explains things very clearly.
+
+[ozwaldorf's](https://github.com/ozwaldorf/dotfiles): Setup for Swayfx
