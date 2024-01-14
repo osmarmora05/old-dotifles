@@ -33,7 +33,7 @@
 
 /*Dark decay*/
 
-@define-color colbg     #101419; 
+/* @define-color colbg     #101419; 
 @define-color colbg2    #1c252c;
 @define-color colfg     #b6beca;
 @define-color colgrey   #5B6268;
@@ -43,7 +43,22 @@
 @define-color colmagenta #e2a6ff;
 @define-color colviolet #a9a1e1;
 @define-color colred    #fc7b81;
-@define-color colyellow #ffeba6;
+@define-color colyellow #ffeba6; */
+
+
+/*Amarena*/
+
+@define-color colbg     #1A2026; 
+@define-color colbg2    #222a32;
+@define-color colfg     #FFFFFF;
+@define-color colgrey   #4f5e6c;
+@define-color colcyan   #7FE4D2;
+@define-color colgreen  #94CF95;
+@define-color colorange #f5a97f;
+@define-color colmagenta #CD84C8;
+@define-color colviolet #6EC1D6;
+@define-color colred    #FB6396;
+@define-color colyellow #F692B2;
 
 
 /*Oxocarbon*/
