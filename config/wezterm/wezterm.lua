@@ -14,6 +14,7 @@ local themes = {
     ['solarized_dark'] = 'Builtin Solarized Dark',
     ['solarized_light'] = 'Builtin Solarized Light',
     ['sexy'] = 's3r0 modified (terminal.sexy)',
+    ['dark-decay'] = 'dark-decay',
     ['clean'] = 'clean',
     ['adwaita'] = 'adwaita',
     ['janleigh'] = 'janleigh',
@@ -33,7 +34,7 @@ local themes = {
 return {
 
     -- Color Scheme
-    color_scheme                =  themes['clean'],
+    color_scheme                =  themes['amarena'],
 
     color_schemes                = {
         ['Builtin Solarized Dark'] = {
@@ -66,7 +67,7 @@ return {
         bottom = '24pt',
         top = '24pt'
     },
-    window_background_opacity    = 0.9,
+    window_background_opacity    = 0.85,
 
     -- Tabbar
     enable_tab_bar               = true,
