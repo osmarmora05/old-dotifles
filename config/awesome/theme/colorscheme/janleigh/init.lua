@@ -1,5 +1,6 @@
 -- Janleigh's (aka Kizu) custom, untitled, colorscheme.
 -- https://github.com/janleigh/dotfiles
+
 local _C = {}
 
 -- Monochrome

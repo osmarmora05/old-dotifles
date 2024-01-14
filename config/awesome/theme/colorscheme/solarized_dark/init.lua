@@ -1,5 +1,5 @@
 -- Solarized Dark Colorscheme
---https://ethanschoonover.com/solarized/
+-- https://ethanschoonover.com/solarized/
 
 local _C = {}
 

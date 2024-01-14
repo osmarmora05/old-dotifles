@@ -1,4 +1,5 @@
 -- The default AWM colorscheme, expanded to fit my setup.
+-- https://github.com/gwynsav
 
 local _C = {}
 

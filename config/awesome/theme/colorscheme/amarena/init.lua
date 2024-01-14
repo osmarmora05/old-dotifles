@@ -1,4 +1,4 @@
--- Ephemeral Colorscheme
+-- amarena Colorscheme
 -- https://github.com/elenapan/dotfiles/blob/master/.xfiles/amarena
 
 local _C = {}

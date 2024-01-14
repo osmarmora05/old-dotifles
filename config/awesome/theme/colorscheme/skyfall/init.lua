@@ -1,4 +1,4 @@
--- Ephemeral Colorscheme
+-- Skyfall Colorscheme
 -- https://github.com/elenapan/dotfiles/blob/master/.xfiles/skyfall
 
 local _C = {}
