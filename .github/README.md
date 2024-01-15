@@ -55,12 +55,14 @@ These are my configuration files for **AwesomeWM** which includes a control cent
 
     In the case of **Fedora-based distributions**, it is necessary to install certain libraries before proceeding with the Awesome-git installation.
     ```shell
-    sudo dnf install xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel 
-    startup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel libxkbcommon-x11-devel xcb-cursor-devel 
-    make automake gcc gcc-c++ cmake glib2-devel gdk-pixbuf2-devel cairo-devel libX11-devel xcb-util-cursor-devel 
-    xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel libxkbcommon-devel cairo-devel xcb-util-image-devel 
-    libstartup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel libxcb-devel lua-devel cmake 
-    startup-notification-devel libxkbcommon-devel libxkbcommon-x11-devel libxdg-basedir-devel xcb-util-xrm-devel
+    sudo dnf install xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel \
+    startup-notification-devel libxdg-basedir-devel xcb-util-xrm-devel \ 
+    libxkbcommon-x11-devel xcb-cursor-devel make automake gcc gcc-c++ \ 
+    cmake glib2-devel gdk-pixbuf2-devel cairo-devel libX11-devel \ 
+    xcb-util-cursor-devel xcb-util-devel xcb-util-keysyms-devel xcb-util-wm-devel \ 
+    libxkbcommon-devel cairo-devel xcb-util-image-devel libstartup-notification-devel \
+    libxdg-basedir-devel xcb-util-xrm-devel libxcb-devel lua-devel cmake startup-notification-devel \ 
+    libxkbcommon-devel libxkbcommon-x11-devel libxdg-basedir-devel xcb-util-xrm-devel lua-lgi lua-devel
     ```
 
     Once we have completed the prerequisites, we proceed to follow the Awesome-git build instructions found [here](https://github.com/awesomeWM/awesome/#building-and-installation).
@@ -127,7 +129,7 @@ These are my configuration files for **AwesomeWM** which includes a control cent
 
     ```shell
     cd dotfiles
-    cp -r config/awesome/* ~/.config/
+    cp -r config/* ~/.config/
     ```
 
     **Optional** - Now if you want to get the fonts from the repository
