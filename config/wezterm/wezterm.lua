@@ -34,7 +34,7 @@ local themes = {
 return {
 
     -- Color Scheme
-    color_scheme                =  themes['amarena'],
+    color_scheme                =  themes['dark-decay'],
 
     color_schemes                = {
         ['Builtin Solarized Dark'] = {
@@ -84,6 +84,7 @@ return {
 
     -- Miscelaunus
     default_cursor_style         = 'SteadyBar',
+    enable_wayland = false,
 
     --Keybinds
     keys                         = require('keys'),
